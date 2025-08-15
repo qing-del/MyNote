@@ -34,7 +34,7 @@ xml映射文件的名字应该要**与类名相同**并且要在相**同路径�
 ```
 
 ## ② foreach标签
-* foreach标签示例代码：
+* foreach标签属性值：
     * collection 属性：指定集合名称
     * item ：指定集合中的元素
     * separator ：指定分隔符
@@ -47,4 +47,26 @@ xml映射文件的名字应该要**与类名相同**并且要在相**同路径�
         (#{expr.empId},#{expr.begin},#{expr.end},#{expr.company},#{expr.job})
     </foreach>
 </insert>
+```
+
+## ③ set标签
+* 会自动生成set关键字，会自动删除更新字多后多余','
+```xml
+<update id="updateById">
+    update emp
+    <set>
+        <if test="username != null and username != ''">username = #{username},</if>
+        <if test="password != null and password != ''">password = #{password},</if>
+        <if test="name != null and name != ''">name = #{name},</if>
+        <if test="gender != null">gender = #{gender},</if>
+        <if test="phone != null and phone != ''">phone = #{phone},</if>
+        <if test="job != null">job = #{job},</if>
+        <if test="salary != null">salary = #{salary},</if>
+        <if test="image != null and image != ''">image = #{image},</if>
+        <if test="entryDate != null">entry_date = #{entryDate},</if>
+        <if test="deptId != null">dept_id = #{deptId},</if>
+        <if test="updateTime != null">update_time = #{updateTime},</if>
+    </set>
+    where id = #{id}
+</update>
 ```
