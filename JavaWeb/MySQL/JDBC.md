@@ -1,8 +1,8 @@
 # JDBC
 ## 目录
-[java 程序操作数据库](#java-程序操作数据库)
-[示例一](#示例一)
-[示例二](#示例二)
+- [java 程序操作数据库](#java-程序操作数据库)
+- [示例一](#示例一)
+- [示例二](#示例二)
 
 ### java 程序操作数据库
 * **简介**： <br>目前主流的框架有 MyBatis、MyBatisPlus、Hibernate、Spring Data JPA 等<br>但是其实都是封装了 JDBC 的操作<br>JDBC 是 Java 数据库连接（Java Database Connectivity）的缩写，是 Java 语言中用于连接和操作数据库的 API<br>JDBC 提供了 **Mysql、Oracle、SqlServer** 等的数据库实现驱动
