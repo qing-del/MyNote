@@ -13,6 +13,8 @@
         - [annotation](#切入点表达式---annotation)
     - [连接点](#连接点)
 - [AOP 案例](#aop-案例)
+    - [案例](#案例)
+        - [ThreadLocal 技术](#threadlocal-技术)
 
 ---
 
@@ -497,3 +499,191 @@ public void before(JoinPoint joinPoint) {
 
 
 ## AOP 案例
+### 案例：
+- 需求：将增、删、改相关接口的操作日志记录到数据库表中
+- 日志信息：操作人、操作时间、执行方法的全类名、执行方法名、方法运行时参数、返回值、方法执行时长
+- 分析：
+    - @Around 环绕通知，因为要获取方法运行时长
+    - 切入点表达式选用 **annotation** 注解，因为用 execution 匹配会比较繁琐，并且方法有可能出现不一致的情况
+> 记得引入依赖
+
+#### ThreadLocal 技术
+- ThreadLocal 并不是一个 Thread，而是 Thread 的局部变量
+- ThreadLocal 为每个线程提供一份单独的存储空间，具有线程隔离效果，不同的线程之间不会相互干扰
+- ThreadLocal 中会有一个线程本地变量，即为`ThreadLocalMap`
+- 三个常用方法：
+    - public void set(T value)  // 设置当前线程的局部变量值
+    - public T get()  // 获取当前线程的局部变量值
+    - public void remove()  // 删除当前线程的局部变量
+
+<details>
+<summary><b>· 数据库表</b></summary>
+
+```sql
+-- 操作日志表
+create table operate_log (
+    id int unsigned primary key auto_increment comment 'ID',
+    operate_emp_id int unsigned comment '操作员ID',
+    operate_time datetime comment '操作时间',
+    class_name varchar(100) comment '操作的类名',
+    method_name varchar(100) comment '操作的方法名',
+    method_params varchar(2000) comment '操作的方法参数',
+    return_value varchar(2000) comment '返回值',
+    cost_time bigint unsigned comment '耗时（毫秒）'
+)
+```
+
+</details>
+
+<details>
+<summary><b>· 实体类</b></summary>
+
+```java
+@Data
+public class OperateLog { 
+    private Integer id; // ID
+    private Integer operateEmpId;   // 操作员ID
+    private Date operateTime;   // 操作时间
+    private String className;   // 操作的类名
+    private String methodName;  // 操作的方法名
+    private String methodParams;    // 操作的方法参数
+    private String returnValue; // 返回值
+    private Long costTime;  // 耗时（毫秒）
+}
+```
+
+</details>
+
+<details>
+<summary><b>· Mapper</b></summary>
+
+```java
+@Mapper
+public interface OperateLogMapper { 
+    //插入日志数据
+    @Insert("insert into operate_log (operate_emp_id, operate_time, class_name, method_name, method_params, return_value, cost_time)" +
+    "values (#{operateEmpId}, #{operateTime}, #{className}, #{methodName}, #{methodParams}, #{returnValue}, #{costTime})")
+    public void insert(OperateLog operateLog);
+}
+```
+
+</details>
+
+<details>
+<summary><b>· 注解类</b></summary>
+
+```java
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface Log {}
+```
+
+</details>
+
+<details>
+<summary><b>· AOP 切面类</b></summary>
+
+```java
+@Slf4j
+@Aspect
+@Component
+public class OperationLogAspect { 
+    @Autowired
+    private OperateLogMapper operateLogMapper;
+
+    @Around("@annotation(com.example.anno.Log)")
+    public Object logOperation(ProceedingJoinPoint joinPoint) throws Throwable { 
+        long startTime = System.currentTimeMillis();
+
+        Object result = joinPoint.proceed();
+        long endTime = System.currentTimeMillis();
+        long costTime = endTime - startTime;
+
+        // 构建日志实体
+        OperationLog olog = new OperationLog();
+        olog.setOperateEmpId(getCurrentEmpId());
+        olog.setOperateTime(LocalDateTime.now());
+        olog.setClassName(joinPoint.getTarget().getClass().getName());
+        olog.setMethodName(joinPoint.getSignature().getName());
+        olog.setMethodParams(Arrays.toString(joinPoint.getArgs()));
+        olog.setReturnValue(result != null ? 0 ? result.toString() : "void");
+        olog.setCostTime(costTime);
+
+        // 保存日志
+        log.info("保存日志：{}", olog);
+        operateLogMapper.insert(olog);
+
+        return result;
+    }
+
+    // 可以获取用户 jwt 令牌，解析其获取员工 ID
+    // 使用 ThreadLocal 技术
+    private Integer getCurrentEmpId() { 
+        return CurrentHolder.getCurrentId();    
+    }
+}
+```
+
+</details>
+
+<details>
+<summary><b>· 基于 ThreadLocal 来获取员工id</b></summary>
+
+```java
+public class CurrentHolder {
+    private static final ThreadLocal<Integer> CURRENT_LOCAL = new ThreadLocal<>();
+
+    public static void setCurrentId(Integer employeeId) {
+        CURRENT_LOCAL.set(employeeId);
+    }
+
+    public static Integer getCurrentId() {
+        return CURRENT_LOCAL.get();
+    }
+
+    public static void remove() {
+        CURRENT_LOCAL.remove();
+    }
+}
+```
+
+```java
+@Slf4j
+@WebFilter(urlPatterns = "/*")
+public class TokenFilter implements Filter { 
+    @Override
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws Exception { 
+        //1. 获取到请求路径
+        ...
+
+        //2. 判断是否是登录请求，如果路径中包含 /login，说明是登录操作，放行
+        ...
+
+        //3. 获取请求头中的 token
+        ...
+
+        //4. 判断 token 是否存在，如果不存在，说明用户没有登录，返回错误信息(响应 401 状态码)
+        ...
+
+        //5. 若是令牌存在，校验令牌，如果校验失败，返回错误信息(响应 401 状态码)
+        try { 
+            Claims claims = JwtUtils.parseJWT(token);
+            Integer empId = Integer.valueOf(claims.get("id").toString());
+            CurrentHolder.setCurrentId(empId);
+            log.info("当前员工id：{}，将其存入ThreadLocal", empId);
+        } catch (Exception e) { 
+            log.info("令牌校验失败，响应 401 状态码");
+            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+            return
+        }
+
+        //6. 校验通过，放行
+        ...
+
+        //7. 删除 ThreadLocal 中的数据
+        CurrentHolder.remove();
+    }
+}
+```
+
+</details>

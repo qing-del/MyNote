@@ -1,0 +1,198 @@
+{
+  "main": {
+    "id": "d24ced31ea24a4e0",
+    "type": "split",
+    "children": [
+      {
+        "id": "a6994841ff817e10",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e1c274075e3d71ea",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "GeminiHelpStudy/task-system-note/one/First Stage.md",
+                "mode": "preview",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "First Stage"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "30e44b974a56d844",
+    "type": "split",
+    "children": [
+      {
+        "id": "2ebe556046fa96db",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ad081ac270e3444e",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "88bc9f36aaf2d32d",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "cc3366dbecd15a64",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "64ee8638e9f09584",
+    "type": "split",
+    "children": [
+      {
+        "id": "e8676c33e4efa5d4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f80c40454a7e787e",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "GeminiHelpStudy/task-system-note/one/First Stage.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "First Stage 的反向链接列表"
+            }
+          },
+          {
+            "id": "046b112925e3ee0f",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "GeminiHelpStudy/task-system-note/one/First Stage.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "First Stage 的出链列表"
+            }
+          },
+          {
+            "id": "eea481dd1a5c9932",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "8bb9f69710b52e92",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "ac33deec77117579",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "GeminiHelpStudy/task-system-note/one/First Stage.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "First Stage 的大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:创建新数据库": false
+    }
+  },
+  "active": "e1c274075e3d71ea",
+  "lastOpenFiles": [
+    "GeminiHelpStudy/task-system-note/one/First_Stage_Canvas.canvas",
+    "GeminiHelpStudy/task-system-note/one/First Stage.md",
+    "JavaWeb/AfterEndAdvanced/Spring原理.md",
+    "GeminiHelpStudy/JavaStudy.md",
+    "GeminiHelpStudy/task-system-note/one/未命名.canvas",
+    "GeminiHelpStudy/task-system-note/one",
+    "GeminiHelpStudy/Task-System-Memories/Memory_1.md",
+    "GeminiHelpStudy/task-system-note/未命名.base",
+    "GeminiHelpStudy/task-system-note/未命名.canvas"
+  ]
+}

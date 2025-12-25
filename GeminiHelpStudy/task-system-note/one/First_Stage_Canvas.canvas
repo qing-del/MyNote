@@ -1,0 +1,20 @@
+{
+	"nodes":[
+		{"id":"config","type":"text","text":"### ⚙️ application.yml\n[[First Stage#application.yml]]\n- **MyBatis**: `map-underscore-to-camel-case: true`\n- **AI**: 配置 DeepSeek Key 和 URL\n- **DB**: MySQL 连接串","x":600,"y":-300,"width":300,"height":240,"color":"6"},
+		{"id":"entity","type":"text","text":"### 📦 PlayerStatus.java\n[[First Stage#PlayerStatus.java]]\n\n数据模型 (Lombok)\n- id, level, spirit, body\n- currentExp, totalExp\n- **@JsonFormat**: 格式化时间","x":-60,"y":400,"width":460,"height":240,"color":"4"},
+		{"id":"service_core","type":"text","text":"### 🧠 TaskServiceImpl.java\n[[First Stage#TaskServiceImpl.java]]\n**核心逻辑**\n1. `completeTask()`: 事务入口\n2. `checkLevelUp()`: 升级算法\n3. 经验值增加因子: `EXP_INCREASE_Factor = 5`","x":-60,"y":0,"width":400,"height":300,"color":"3"},
+		{"id":"service_ai","type":"text","text":"### 🤖 AiTaskService.java\n[[First Stage#AiTaskService.java]]\n**AI 生成器**\n- 使用原生 `HttpClient`\n- 构造 Prompt: \"根据等级生成任务...\"\n- 强制 DeepSeek 返回 JSON","x":400,"y":0,"width":360,"height":300,"color":"5"},
+		{"id":"mapper","type":"text","text":"### 🛠️ TaskMapper.java\n[[First Stage#TaskMapper.java]]\n**数据库接口**\n- `@Select`: 查询任务\n- `@Insert`: 写入新任务 (支持 AI 生成的)\n- `@Update`: 修改状态","x":-520,"y":0,"width":360,"height":300,"color":"2"},
+		{"id":"external_ai","type":"text","text":"☁️ **DeepSeek API**\n(HTTPS POST)","x":940,"y":60,"width":200,"height":180,"color":"1"},
+		{"id":"db","type":"text","text":"🗄️ **MySQL Database**\n[[First Stage#Database Console]]\nTable: `player_stats`\nTable: `task`","x":-880,"y":-200,"width":320,"height":140,"color":"1"}
+	],
+	"edges":[
+		{"id":"e1","fromNode":"service_core","fromSide":"left","toNode":"mapper","toSide":"right","label":"调用"},
+		{"id":"e2","fromNode":"mapper","fromSide":"left","toNode":"db","toSide":"right","label":"SQL 执行"},
+		{"id":"e3","fromNode":"service_ai","fromSide":"right","toNode":"external_ai","toSide":"left","label":"Request"},
+		{"id":"e4","fromNode":"service_core","fromSide":"bottom","toNode":"entity","toSide":"top","label":"操作数据"},
+		{"id":"e5","fromNode":"mapper","fromSide":"bottom","toNode":"entity","toSide":"top","label":"映射对象"},
+		{"id":"e6","fromNode":"service_ai","fromSide":"bottom","toNode":"entity","toSide":"top","label":"读取属性"},
+		{"id":"e7","fromNode":"config","fromSide":"bottom","toNode":"service_ai","toSide":"top","label":"注入 Key"}
+	]
+}
