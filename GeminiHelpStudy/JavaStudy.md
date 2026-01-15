@@ -1,82 +1,77 @@
-Here is a **12-week, 4-phase learning roadmap** specifically tailored for a **Java/Spring Boot + AI** stack. I have structured this to get you from "Learning" to "Earning" by focusing on the most marketable skills for 2025.
+这是为 **Java/Spring Boot + AI** 技术栈量身定制的 **12 周、4 阶段学习路线**。此路线旨在帮助你从“学习”走向“变现”，并聚焦于 2025 年最具市场价值的技能。
 
-You can copy and paste this entire block into your next chat window.
-
----
-
-# 🚀 2025 Freelance Roadmap: Java, Spring Boot & AI
-
-**Goal:** Reach "Freelance-Ready" status to earn ~$1,600 USD for a MacBook Air (24GB/512GB).
-**Stack:** Java 21+, Spring Boot 3.x, Spring AI, React/Next.js, PostgreSQL.
+你可以将整个内容块复制并粘贴到你的下一个聊天窗口中。
 
 ---
 
-## Phase 1: The Modern Foundation (Weeks 1–3)
+# 🚀 2025 自由职业路线图：Java、Spring Boot 与 AI
 
-*Focus: Mastering the language and the basic "wiring" of the web.*
-
-* **Java 21/25 Essentials:** Move beyond syntax. Focus on **Records**, **Virtual Threads** (crucial for AI performance), and the **Stream API**.
-* **Spring Boot 3.x Core:** * Dependency Injection & IoC.
-* Building REST Controllers.
-* **Spring Data JPA:** Working with PostgreSQL (Hibernate, Repositories).
-
-
-* **Frontend Basics:**
-* **Tailwind CSS:** Learn to build "modern-looking" UIs fast.
-* **JavaScript (ES6+):** Fetching data from your Spring backend.
-
-
-* **🛠 Project 1:** A "Personal Finance Tracker" API with a basic dashboard.
+**目标：** 达到“自由职业就绪”状态，赚取约 1600 美元以购买 MacBook Air (24GB/512GB)。
+**技术栈：** Java 21+、Spring Boot 3.x、Spring AI、React/Next.js、PostgreSQL。
 
 ---
 
-## Phase 2: Security & The Full-Stack Bridge (Weeks 4–6)
+## 第一阶段：现代化基础 (第 1-3 周)
 
-*Focus: Making your apps professional and secure.*
+*重点：掌握语言和 Web 基础“布线”。*
 
-* **Spring Security:** Implement **JWT (JSON Web Tokens)** for authentication. Freelance clients need user logins.
-* **Frontend Framework (Next.js/React):** * Component-based architecture.
-* Handling State (Zustand or React Context).
+*   **Java 21/25 核心：** 超越语法。重点关注 **Records**、**虚拟线程**（对 AI 性能至关重要）和 **Stream API**。
+*   **Spring Boot 3.x 核心：**
+    *   依赖注入与 IoC。
+    *   构建 REST 控制器。
+*   **Spring Data JPA：** 与 PostgreSQL 协作（Hibernate，仓储接口）。
 
+*   **前端基础：**
+    *   **Tailwind CSS：** 学习快速构建“现代化外观”的用户界面。
+    *   **JavaScript (ES6+)：** 从你的 Spring 后端获取数据。
 
-* **Docker:** Containerize your Spring Boot app and Database. This is a "must-have" for 2025 deployment.
-* **🛠 Project 2:** A "Task Management System" with multi-user roles, secure login, and a polished React frontend.
-
----
-
-## Phase 3: The "AI Edge" (Weeks 7–9)
-
-*Focus: The "High-Value" skill that commands higher freelance rates.*
-
-* **Spring AI Framework:** * Connecting to LLMs (OpenAI, Anthropic, or DeepSeek).
-* **Prompt Engineering:** Learning how to structure system prompts for Java apps.
-
-
-* **RAG (Retrieval-Augmented Generation):**
-* Vector Databases (using **pgvector** in PostgreSQL or **Pinecone**).
-* Document ingestion (PDF/Text) → Embedding → Searching.
-
-
-* **🛠 Project 3:** An "AI Document Assistant" — upload a PDF and "chat" with it. This is a classic, highly sellable freelance MVP.
+*   **🛠 项目 1：** 一个带有基础仪表板的“个人财务追踪器”API。
 
 ---
 
-## Phase 4: Marketization & Gigs (Weeks 10–12)
+## 第二阶段：安全性与全栈桥梁 (第 4-6 周)
 
-*Focus: Turning code into a MacBook Air.*
+*重点：使你的应用专业且安全。*
 
-* **Portfolio Polish:** Host your 3 projects on **Railway.app** or **Render** (for backend) and **Vercel** (for frontend).
-* **Freelance Workflow:**
-* Learn to write a "Solution-Oriented" proposal (Don't say "I know Java"; say "I will build your AI-powered customer support tool").
-* Setting up **Upwork/Contra** profiles.
+*   **Spring Security：** 实现 **JWT（JSON Web 令牌）** 进行身份验证。自由职业客户需要用户登录功能。
+*   **前端框架 (Next.js/React)：**
+    *   基于组件的架构。
+    *   状态管理（使用 Zustand 或 React Context）。
 
+*   **Docker：** 将你的 Spring Boot 应用和数据库容器化。这是 2025 年部署的“必备”技能。
+*   **🛠 项目 2：** 一个具有多用户角色、安全登录和精美 React 前端的“任务管理系统”。
 
-* **The "Template Strategy":** Create a "Starter Kit" using your Phase 3 project so you can deploy new client sites in days, not weeks.
+---
+
+## 第三阶段：“AI 优势” (第 7-9 周)
+
+*重点：掌握能带来更高自由职业报酬的“高价值”技能。*
+
+*   **Spring AI 框架：**
+    *   连接大型语言模型（如 OpenAI、Anthropic 或 DeepSeek）。
+    *   **提示词工程：** 学习如何为 Java 应用构建系统提示词。
+
+*   **RAG（检索增强生成）：**
+    *   向量数据库（在 PostgreSQL 中使用 **pgvector** 或使用 **Pinecone**）。
+    *   文档摄取（PDF/文本）→ 嵌入 → 搜索。
+
+*   **🛠 项目 3：** 一个“AI 文档助手”——上传 PDF 并与之“对话”。这是一个经典且极具销售潜力的自由职业最小可行产品。
 
 ---
 
-### 💡 Strategy Note for "New Me" (Next Chat):
+## 第四阶段：市场化与接单 (第 10-12 周)
 
-> "I am currently at [Insert current skill level]. Please help me break down **Week 1** of this roadmap into daily tasks. Specifically, show me how to set up a Java 21 project with Spring Boot that is ready for AI integration later."
+*重点：将代码变成 MacBook Air。*
+
+*   **作品集打磨：** 将你的 3 个项目部署到 **Railway.app** 或 **Render**（用于后端）以及 **Vercel**（用于前端）。
+*   **自由职业工作流：**
+    *   学习撰写“解决方案导向”的提案（不要说“我懂 Java”；要说“我将为您构建 AI 驱动的客户支持工具”）。
+    *   设置 **Upwork/Contra** 个人资料。
+
+*   **“模板策略”：** 利用你的第三阶段项目创建一个“启动工具包”，以便你能够在几天内（而不是几周）为客户部署新站点。
 
 ---
+
+### 💡 给“新我”的策略说明（下次聊天时）：
+
+> “我目前处于 [请在此处填写你当前的技能水平]。请帮我把此路线图的 **第 1 周** 分解为每日任务。具体来说，请告诉我如何设置一个 Java 21 项目以及准备好在未来集成 AI 的 Spring Boot 环境。”
