@@ -1,10 +1,12 @@
 # 动态SQL语句的一些标签
-
+---
 ## 目录
-- [基础](#基础)
-- [where 和 if 标签](#-where-和-if-标签)
-- [foreach 标签](#-foreach标签)
-- [set 标签](#-set标签)
+- [[#基础：]]
+- [[#① where 和 if 标签]]
+- [[#② foreach标签|foreach标签--用于封装列表]]
+- [[#③ set标签|set标签]]
+- [[#④ choose标签|choose标签]]
+---
 
 ### 基础：
 动态SQL语句是使用在**xml映射文件**中的<br>
@@ -76,4 +78,67 @@ xml映射文件的名字应该要**与类名相同**并且要在相**同路径�
     </set>
     where id = #{id}
 </update>
+```
+
+## ④ choose标签
+- 类似于有`else` 的`if`语句
+```xml
+<insert id="registerInsert">  
+    insert into player_status (spirit, body, current_exp, total_exp, level, update_time, user_id, coin)  
+    values (    <choose>  
+        <when test="spirit != 1">  
+            1  
+        </when>  
+        <otherwise>
+	        #{spirit}  
+        </otherwise>  
+    </choose>  
+  
+    <choose>  
+        <when test="body != 1">  
+            , 1  
+        </when>  
+        <otherwise>
+	        , #{body}  
+        </otherwise>  
+    </choose>  
+  
+    <choose>  
+        <when test="currentExp != 0">  
+            , 0  
+        </when>  
+        <otherwise>
+			, #{currentExp}  
+        </otherwise>  
+    </choose>  
+  
+    <choose>  
+        <when test="totalExp != 10">  
+            , 10  
+        </when>  
+        <otherwise>
+	        , #{totalExp}  
+        </otherwise>  
+    </choose>  
+  
+    <choose>  
+        <when test="level != 1">  
+            , 1  
+        </when>  
+        <otherwise>
+	        , #{level}  
+        </otherwise>  
+    </choose>  
+  
+    , now(), #{userId}  
+    <choose>  
+        <when test="coin != 1">  
+            , 1  
+        </when>  
+        <otherwise>
+	        , #{coin}  
+        </otherwise>  
+    </choose>  
+    )  
+</insert>
 ```

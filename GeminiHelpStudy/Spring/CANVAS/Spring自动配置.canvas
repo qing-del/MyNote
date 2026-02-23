@@ -1,0 +1,27 @@
+{
+	"nodes":[
+		{"id":"node_enable","type":"text","text":"### 3. 开启自动配置\n\n`@EnableAutoConfiguration`\n\n这个注解封装了 `@Import`，导入了选择器。","x":150,"y":-20,"width":300,"height":160,"color":"2"},
+		{"id":"node_annotation","type":"text","text":"### 2. 核心注解\n\n`@SpringBootApplication`\n\n按住 Ctrl 点击进入，重点关注组合注解。","x":-320,"y":-200,"width":300,"height":160,"color":"2"},
+		{"id":"node_start","type":"text","text":"### 1. 启动类入口\n\n[[Spring AutoConfiguration原理#源码路线|SpringbootWebConfigApplication]]\n\n这是所有项目的入口，包含 main 方法。","x":-840,"y":-200,"width":250,"height":200,"color":"1"},
+		{"id":"node_annotation_detail","type":"text","text":"**注解内部结构：**\n\n1. `SpringBootConfiguration`\n   (本质是 @Configuration)\n2. `ComponentScan`\n   (扫描当前包及其子包)\n3. **`EnableAutoConfiguration`**\n   (核心：开启自动配置)","x":-240,"y":350,"width":300,"height":230,"color":"6"},
+		{"id":"node_selector","type":"text","text":"### 4. 选择器逻辑\n\n类：`AutoConfigurationImportSelector`\n\n核心方法：`selectImports`","x":800,"y":-20,"width":320,"height":160,"color":"3"},
+		{"id":"node_file","type":"text","text":"### 5. 读取配置文件\n\n文件：`AutoConfiguration.imports`\n\n利用 IDEA 定位 jar 包功能查找。","x":1360,"y":-20,"width":300,"height":160,"color":"5"},
+		{"id":"node_result","type":"text","text":"### 6. 自动配置类生效\n\n示例：`GsonAutoConfiguration`\n\n最终将 Bean 注册到 IOC 容器。","x":1960,"y":0,"width":300,"height":140,"color":"1"},
+		{"id":"node_selector_logic","type":"text","text":"**源码逻辑链：**\n\n1. 实现 `DeferredImportSelector` 接口\n2. 调用 `selectImports`\n3. 内部调用 `getAutoConfigurationEntry`\n4. 继续调用 `getCandidateConfigurations`\n\n---\n**断言检查：**\n在此处会有一个断言，提示了配置文件的位置：\n```java\nAssert.notEmpty(configurations, \n\"No auto configuration classes found in META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports\");\n```\n","x":800,"y":300,"width":320,"height":380,"color":"4"},
+		{"id":"node_file_content","type":"text","text":"**文件位置：**\n`META-INF/spring/...`\n\n**文件内容：**\n里面包含大量的全限定类名，例如：\n`...GsonAutoConfiguration`\n`...RedisAutoConfiguration`\n\n(PS: 2.7.0 以前版本在 spring.factories)","x":1360,"y":310,"width":300,"height":290,"color":"4"},
+		{"id":"node_result_code","type":"text","text":"```java\n@AutoConfiguration\n@ConditionalOnClass(Gson.class)\npublic class GsonAutoConfiguration {\n    @Bean\n    @ConditionalOnMissingBean\n    public Gson gson() {\n        return new GsonBuilder().create();\n    }\n}\n```\n使用了 `@AutoConfiguration` (封装了 @Configuration) 和 `@Bean`。","x":1960,"y":300,"width":300,"height":440,"color":"4"},
+		{"id":"node_import_code","type":"text","text":"```java\n@AutoConfigurationPackage\n@Import(AutoConfigurationImportSelector.class)\npublic @interface EnableAutoConfiguration { ... }\n```\n关键在于导入了 **AutoConfigurationImportSelector** 类。","x":150,"y":260,"width":370,"height":265,"color":"4"}
+	],
+	"edges":[
+		{"id":"edge_1","fromNode":"node_start","fromSide":"right","toNode":"node_annotation","toSide":"left","label":"进入注解"},
+		{"id":"edge_2","fromNode":"node_annotation","fromSide":"bottom","toNode":"node_annotation_detail","toSide":"top","label":"展开细节"},
+		{"id":"edge_3","fromNode":"node_annotation","fromSide":"right","toNode":"node_enable","toSide":"left","label":"关注 Enable"},
+		{"id":"edge_4","fromNode":"node_enable","fromSide":"bottom","toNode":"node_import_code","toSide":"top","label":"查看源码"},
+		{"id":"edge_5","fromNode":"node_enable","fromSide":"right","toNode":"node_selector","toSide":"left","label":"导入 Selector"},
+		{"id":"edge_6","fromNode":"node_selector","fromSide":"bottom","toNode":"node_selector_logic","toSide":"top","label":"执行流程"},
+		{"id":"edge_7","fromNode":"node_selector","fromSide":"right","toNode":"node_file","toSide":"left","label":"加载配置"},
+		{"id":"edge_8","fromNode":"node_file","fromSide":"bottom","toNode":"node_file_content","toSide":"top","label":"文件详情"},
+		{"id":"edge_9","fromNode":"node_file","fromSide":"right","toNode":"node_result","toSide":"left","label":"获取配置类"},
+		{"id":"edge_10","fromNode":"node_result","fromSide":"bottom","toNode":"node_result_code","toSide":"top","label":"类定义"}
+	]
+}

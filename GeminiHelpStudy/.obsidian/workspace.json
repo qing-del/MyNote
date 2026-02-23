@@ -4,49 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "156d715246d875c5",
+        "id": "2191e4601f94e2fc",
         "type": "tabs",
         "children": [
           {
-            "id": "104630388c53a09e",
+            "id": "7a362601bdd07974",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "task-system-note/two/Stage log2.md",
-                "mode": "preview",
+                "file": "MySQL/MySQL原理/MySQL执行原理.md",
+                "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Stage log2"
-            }
-          },
-          {
-            "id": "1ca2d4c6c5e5e077",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "MyBatis/动态SQL语句.md",
-                "mode": "preview",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "动态SQL语句"
-            }
-          },
-          {
-            "id": "b822b533f9ac966f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "日志.md",
-                "mode": "preview",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "日志"
+              "title": "MySQL执行原理"
             }
           }
         ]
@@ -81,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "Spring Cache",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -106,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 259.5,
-    "collapsed": true
+    "width": 259.5
   },
   "right": {
     "id": "8e7d3cf0411bcd58",
@@ -123,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "task-system-note/two/Problems Set.md",
+                "file": "Vue/Learning/语句编写与API.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -133,7 +104,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Problems Set 的反向链接列表"
+              "title": "语句编写与API 的反向链接列表"
             }
           },
           {
@@ -194,8 +165,7 @@
               "title": "Problems Set 的大纲"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -204,48 +174,71 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:新建数据库": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
-      "command-palette:打开命令面板": false,
-      "bases:创建新数据库": false
+      "command-palette:打开命令面板": false
     }
   },
-  "active": "104630388c53a09e",
+  "active": "7a362601bdd07974",
   "lastOpenFiles": [
-    "日志.md",
-    "task-system-note/two/Stage log2.md",
-    "MyBatis/动态SQL语句.md",
-    "JavaStudy.md",
-    "MyBatis/分页查询.md",
-    "MyBatis/增删改查&XML映射表.md",
-    "MyBatis/事务管理.md",
-    "MyBatis/自定义封装.md",
-    "MyBatis/img/XML01.jpg",
-    "MyBatis/img/PageExtendsRelationship.jpg",
-    "MyBatis/img",
-    "MySQL/MySQL-表-知识点导图.canvas",
-    "MySQL/MySQL-表-知识点.md",
-    "task-system-note/one/First_Stage_Canvas.canvas",
-    "Task-System-Memories/Memory_1.md",
-    "MySQL/增删改查&XML映射表.md",
+    "MySQL/MySQL原理/MySQL大体框架.canvas",
+    "MySQL/MySQL原理/MySQL执行原理.md",
+    "MySQL/MySQL原理/MySQL存储结构.md",
+    "MySQL/MySQL原理/未命名",
+    "MySQL/MySQL原理/img/MySQL存储结构8.png",
+    "MySQL/MySQL原理/img/MySQL存储结构7.png",
+    "MySQL/MySQL原理/img/MySQL存储结构6.png",
+    "MySQL/MySQL原理/img/MySQL存储结构5.png",
+    "MySQL/MySQL原理/img/MySQL存储结构4.png",
+    "MySQL/MySQL原理/img/MySQL存储结构3.png",
+    "MySQL/MySQL原理/img/MySQL存储结构2.png",
+    "MySQL/MySQL原理/img/MySQL存储结构1.png",
+    "MySQL/MySQL原理/img",
+    "Exam/《苍穹外卖》/Claude 考官打分《苍穹外卖》期末考试.md",
+    "Exam/《苍穹外卖》/ChatGPT考官打分《苍穹外卖》期末考试.md",
+    "Exam/《苍穹外卖》/《苍穹外卖》考核.md",
+    "Spring/SpringAOP.md",
+    "Exam/《苍穹外卖》/Claude 考官二次打分.md",
+    "Exam/《苍穹外卖》/Gemini 考官打分《苍穹外卖》期末考试.md",
+    "OtherUnits/Apache POI.md",
+    "MySQL/MySQL原理",
+    "MySQL/未命名.md",
+    "Exam/《苍穹外卖》",
+    "Personal/玩家信息.canvas",
+    "未命名.md",
+    "Exam",
+    "Frontend/Vue/LearningVue/Vue3基础语句 ＆ API风格.md",
+    "Frontend/Vue/LearningVue/Vue 3 网络请求与 Axios 封装.md",
+    "Frontend/Vue/task-systemVue/3-错误分析.md",
+    "Frontend/Vue/task-systemVue/2-基本配置.md",
+    "Frontend/Vue/task-systemVue/1-环境与依赖.md",
+    "Frontend/Vue/LearningVue/ElementPlus.md",
+    "Frontend/Vue/LearningVue/Vue 3 Router 学习笔记.md",
+    "Frontend/Vue/LearningVue/前端打包与 Nginx 部署指南.md",
+    "Frontend/Vue/LearningVue/环境与工程创建.md",
+    "Frontend/Vue/img/表单校验.png",
+    "Frontend/Vue/img/vue项目构建选项.png",
+    "Spring/Spring Task.md",
+    "Spring/Spring Cache.md",
     "MySQL/JDBC.md",
     "MySQL/函数.md",
-    "Vue/task-system/3-错误分析.md",
-    "MyBatis",
-    "Vue/task-system/2-基本配置.md",
-    "Vue/task-system/1-环境与依赖.md",
-    "task-system-note/two/Password Hash Encode.md",
-    "task-system-note/two/Second Stage Dependency.md",
-    "Vue/task-system",
-    "Vue",
-    "Lombok常见问题.md",
-    "Other.md",
-    "Test.md",
-    "计组笔记.md",
-    "task-system-note/one/First Stage.md",
-    "MySQL"
+    "MySQL/MySQL-表-知识点.md",
+    "Personal",
+    "Frontend/JavaScript",
+    "Frontend/Vue",
+    "Orther",
+    "Project",
+    "Orther/LoveLogic.canvas",
+    "Project/task-system-note/two/Second_Stage_Architecture.canvas",
+    "Project/task-system-note/two/Second_Stage_Architecture_CANVAS.canvas",
+    "Project/task-system-note/one/First_Stage_Canvas.canvas",
+    "Linux&Docker/Docker/Docker 命令图.canvas",
+    "Spring/CANVAS/自定义 starter 流程图.canvas",
+    "Spring/CANVAS/Spring自动配置.canvas",
+    "MySQL/MySQL-表-知识点导图.canvas"
   ]
 }

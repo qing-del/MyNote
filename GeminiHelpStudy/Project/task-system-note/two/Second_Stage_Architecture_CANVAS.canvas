@@ -1,0 +1,28 @@
+{
+	"nodes":[
+		{"id":"backend_grp","type":"group","x":-340,"y":-300,"width":900,"height":880,"color":"#d9a62e","label":"☕ Backend (Spring Boot 3)"},
+		{"id":"frontend_grp","type":"group","x":-1580,"y":-160,"width":440,"height":680,"color":"#e04a4a","label":"🖥️ Frontend (Vue 3 + Element Plus)"},
+		{"id":"deploy_grp","type":"group","x":780,"y":-160,"width":400,"height":500,"color":"#2484ad","label":"🐳 Deployment (Docker Compose)"},
+		{"id":"services","type":"text","text":"### 🧠 Service Layer\n\n- **ShopService**: `@Transactional` (原子交易)\n- **UserService**: 密码加密 (BCrypt), OSS 上传\n- **TaskService**: `PageHelper` 分页, 数据隔离","x":140,"y":-240,"width":380,"height":220,"color":"4"},
+		{"id":"oss_starter","type":"text","text":"### ☁️ Custom Starter\n**aliyun-oss-spring-boot-starter**\n- `AliyunOSSAutoConfiguration`\n- `AliyunOSSOperator` (Bean)","x":140,"y":120,"width":380,"height":180,"color":"5"},
+		{"id":"fe_utils","type":"text","text":"### 🛠️ Utils\n**request.js (Axios 拦截器)**\n1. **Request**: 自动携带 `Bearer Token`\n2. **Response**: 统一脱壳 `res.data`\n3. **Error**: 401/403 自动跳回登录页","x":-1560,"y":-130,"width":400,"height":240,"color":"1"},
+		{"id":"fe_views","type":"text","text":"### 📄 Views\n- **Login.vue**: 登录/注册 (存 Token)\n- **Game.vue**: 个人中心 (头像上传/改密)\n- **Shop.vue**: 商店卡片与购买交互","x":-1560,"y":280,"width":400,"height":200,"color":"1"},
+		{"id":"controllers","type":"text","text":"### 🎮 Controller Layer\n\n- **AuthController**: `/login`, `/register`\n- **UserController**: `/uploadAvatar`, `/updateName`\n- **ShopController**: `/buy` (@RequestBody JSON)\n- **GlobalExceptionHandler**: 统一错误响应","x":-320,"y":-240,"width":340,"height":320,"color":"3"},
+		{"id":"security_layer","type":"text","text":"### 🛡️ Security Layer\n**(Spring Security)**\n\n- **JwtAuthenticationFilter**: 守门员\n- **SecurityConfig**: 放行 `/auth/**`\n- **UserDetail**: 注入上下文 (ThreadLocal)","x":-840,"y":-100,"width":320,"height":250,"color":"2"},
+		{"id":"mappers","type":"text","text":"### 🛠️ Mapper Layer\n- **UserMapper**: `useGeneratedKeys`\n- **TaskMapper**: `WHERE user_id = ?`\n- **ShopMapper**: 扣库存 (CAS思想)","x":140,"y":340,"width":380,"height":200,"color":"5"},
+		{"id":"container_db","type":"text","text":"🗄️ **MySQL Container**\n- Vol: `./mysql/data:/var/lib/mysql`\n- Init: `./mysql/init` (SQL脚本)","x":810,"y":200,"width":340,"height":120,"color":"6"},
+		{"id":"container_app","type":"text","text":"📦 **App Container**\n- Port: `8080`\n- Env: `TZ=Asia/Shanghai`\n- Link: `mysql`","x":810,"y":0,"width":340,"height":160,"color":"6"},
+		{"id":"docker_compose","type":"text","text":"### 📜 docker-compose.yml\n定义服务编排与网络","x":810,"y":-120,"width":340,"height":80,"color":"6"}
+	],
+	"edges":[
+		{"id":"e2","fromNode":"fe_utils","fromSide":"right","toNode":"security_layer","toSide":"left","label":"HTTP Request + Token"},
+		{"id":"e3","fromNode":"security_layer","fromSide":"right","toNode":"controllers","toSide":"left","label":"认证通过"},
+		{"id":"e4","fromNode":"security_layer","fromSide":"bottom","toNode":"fe_views","toSide":"right","color":"#ff0000","label":"403 拒绝/重定向"},
+		{"id":"e5","fromNode":"controllers","fromSide":"right","toNode":"services","toSide":"left","label":"业务逻辑"},
+		{"id":"e6","fromNode":"services","fromSide":"bottom","toNode":"oss_starter","toSide":"top","label":"调用 OSS SDK"},
+		{"id":"e7","fromNode":"services","fromSide":"bottom","toNode":"mappers","toSide":"top","label":"持久化操作"},
+		{"id":"e8","fromNode":"mappers","fromSide":"right","toNode":"container_db","toSide":"left","label":"SQL (JDBC)"},
+		{"id":"e9","fromNode":"backend_grp","fromSide":"right","toNode":"container_app","toSide":"left","label":"打包构建 (Jar -> Image)"},
+		{"id":"82761939d1841442","fromNode":"fe_views","fromSide":"top","toNode":"fe_utils","toSide":"bottom","label":"API 调用"}
+	]
+}

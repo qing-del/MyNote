@@ -4,20 +4,39 @@
     "type": "split",
     "children": [
       {
-        "id": "03697797452e1a3a",
+        "id": "4e85ec80c1801ab5",
         "type": "tabs",
         "children": [
           {
-            "id": "db9bedbb52265f25",
+            "id": "e1769c07092a2a39",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "JavaWeb/AfterEndAdvanced/Spring原理.md",
+                "mode": "source",
+                "source": true
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "Spring原理"
+            }
+          },
+          {
+            "id": "e59e4b1d6515d0b7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "SchoolHomework/大劳视频.md",
+                "mode": "source",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "大劳视频"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -167,26 +186,49 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:新建数据库": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
-      "command-palette:打开命令面板": false,
-      "bases:创建新数据库": false
+      "command-palette:打开命令面板": false
     }
   },
-  "active": "db9bedbb52265f25",
+  "active": "e59e4b1d6515d0b7",
   "lastOpenFiles": [
-    "GeminiHelpStudy/task-system-note/two/Second Stage Dependency.md",
-    "GeminiHelpStudy/task-system-note/one/First Stage.md",
+    "JavaWeb/Statistics/Echarts.md",
+    "JavaWeb/TableOfContents.md",
+    "JavaWeb/MyBatis/动态SQL语句.md",
+    "JavaWeb/MyBatis/分页查询.md",
+    "JavaWeb/MyBatis/事务管理.md",
+    "JavaWeb/MyBatis/自定义封装.md",
+    "JavaWeb/MyBatis/增删改查&XML映射表.md",
+    "JavaWeb/MyBatis/MyBatis.md",
+    "JavaWeb/AfterEnd/过滤与拦截.md",
+    "JavaWeb/AfterEnd/接口开发示例.md",
+    "JavaWeb/AfterEnd/令牌.md",
+    "JavaWeb/AfterEnd/日志.md",
+    "JavaWeb/AfterEnd/文件上传.md",
+    "JavaWeb/AfterEnd/异常处理.md",
+    "JavaWeb/AfterEnd/Lombok常见问题.md",
+    "JavaWeb/MySQL/JDBC.md",
+    "JavaWeb/MySQL/函数.md",
+    "JavaWeb/AfterEndAdvanced/SpringAOP.md",
+    "JavaWeb/AfterEndAdvanced/Spring原理.md",
+    "GeminiHelpStudy/常用的注释.md",
+    "未命名.base",
+    "GeminiHelpStudy/task-system-note/two/Second_Stage_Architecture.canvas",
+    "GeminiHelpStudy/task-system-note/two/第二阶段踩坑实录.md.md",
+    "GeminiHelpStudy/task-system-note/two/后端业务模式.md.md",
+    "GeminiHelpStudy/task-system-note/two/全栈交互与多用户架构.md.md",
+    "GeminiHelpStudy/task-system-note/two/Second Stage.md",
+    "GeminiHelpStudy/task-system-note/two/前端核心逻辑架构.md.md",
+    "GeminiHelpStudy/task-system-note/two/Password Hash Encode.md",
     "GeminiHelpStudy/task-system-note/one/First_Stage_Canvas.canvas",
     "GeminiHelpStudy/task-system-note/two",
-    "JavaWeb/AfterEndAdvanced/Spring原理.md",
-    "GeminiHelpStudy/JavaStudy.md",
     "GeminiHelpStudy/task-system-note/one/未命名.canvas",
     "GeminiHelpStudy/task-system-note/one",
-    "GeminiHelpStudy/Task-System-Memories/Memory_1.md",
     "GeminiHelpStudy/task-system-note/未命名.base",
     "GeminiHelpStudy/task-system-note/未命名.canvas"
   ]

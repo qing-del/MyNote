@@ -1,0 +1,33 @@
+{
+	"nodes":[
+		{"id":"3fbe1d97e460296a","x":440,"y":-180,"width":378,"height":355,"type":"group","label":"容器"},
+		{"id":"c638195c95a96ce0","type":"text","text":"### 镜像仓库","x":-100,"y":-220,"width":180,"height":60},
+		{"id":"91308a711ee094bc","type":"text","text":"### 本地镜像","x":-100,"y":-40,"width":180,"height":60},
+		{"id":"8d1542483cf8863f","type":"text","text":"`docker images`","x":-190,"y":140,"width":180,"height":50,"color":"#827d7d"},
+		{"id":"e10b2ed8b9d59bc6","type":"text","text":"`docker rmi`","x":60,"y":140,"width":180,"height":50,"color":"#827d7d"},
+		{"id":"73d0f23fee493039","type":"text","text":"### Docker 打包文件","x":-645,"y":240,"width":228,"height":60,"color":"1"},
+		{"id":"9974c795ab659749","x":460,"y":-31,"width":119,"height":60,"color":"4","type":"text","text":"### 运行中"},
+		{"id":"05cd69d46c80cd5a","type":"text","text":"### 已停止","x":679,"y":-31,"width":119,"height":60,"color":"1"},
+		{"id":"b703271eaa6d474d","type":"text","text":"`docker logs`","x":340,"y":-420,"width":180,"height":50,"color":"#827d7d"},
+		{"id":"e77c0eca9c2f482a","type":"text","text":"`docker exec`","x":798,"y":-420,"width":180,"height":50,"color":"#827d7d"},
+		{"id":"0ee874951156d2a1","type":"text","text":"`docker ps`","x":320,"y":360,"width":140,"height":50,"color":"#827d7d"},
+		{"id":"8bf91a48d980fb82","type":"text","text":"`docker rm`","x":798,"y":360,"width":140,"height":50,"color":"#827d7d"},
+		{"id":"531b0dadfb1b38a1","type":"text","text":"### DOCKERFILE","x":-645,"y":-100,"width":183,"height":60,"color":"5"}
+	],
+	"edges":[
+		{"id":"8f4f97f3e2a2479b","fromNode":"c638195c95a96ce0","fromSide":"left","toNode":"91308a711ee094bc","toSide":"left","label":"docker pull"},
+		{"id":"43c7d75dfd5597c9","fromNode":"91308a711ee094bc","fromSide":"right","toNode":"c638195c95a96ce0","toSide":"right","label":"docker push\n（需要权限）"},
+		{"id":"24ad8d914a6cc337","fromNode":"8d1542483cf8863f","fromSide":"top","toNode":"91308a711ee094bc","toSide":"bottom","label":"查看镜像"},
+		{"id":"c12872f10a7289e5","fromNode":"e10b2ed8b9d59bc6","fromSide":"top","toNode":"91308a711ee094bc","toSide":"bottom","label":"删除镜像"},
+		{"id":"85eb06d6bd18c8b3","fromNode":"91308a711ee094bc","fromSide":"left","toNode":"531b0dadfb1b38a1","toSide":"right","label":"docker build"},
+		{"id":"5eab61456d289273","fromNode":"91308a711ee094bc","fromSide":"left","toNode":"73d0f23fee493039","toSide":"top","label":"docker save"},
+		{"id":"1ad5c547013215e2","fromNode":"73d0f23fee493039","fromSide":"right","toNode":"91308a711ee094bc","toSide":"left","label":"docker load"},
+		{"id":"f823bc0635a8f4a6","fromNode":"91308a711ee094bc","fromSide":"right","toNode":"9974c795ab659749","toSide":"left","label":"docker run"},
+		{"id":"599a9303938aab3b","fromNode":"9974c795ab659749","fromSide":"top","toNode":"05cd69d46c80cd5a","toSide":"top","label":"docker stop"},
+		{"id":"8b8d7b93a11da2e8","fromNode":"b703271eaa6d474d","fromSide":"bottom","toNode":"3fbe1d97e460296a","toSide":"top","label":"查看运行日志"},
+		{"id":"5c6573fb2f4eb63c","fromNode":"e77c0eca9c2f482a","fromSide":"bottom","toNode":"3fbe1d97e460296a","toSide":"top","label":"进入容器内部"},
+		{"id":"e34214d7d76bc725","fromNode":"0ee874951156d2a1","fromSide":"top","toNode":"3fbe1d97e460296a","toSide":"bottom","label":"查看运行列表"},
+		{"id":"7052e9bcd9eb36ff","fromNode":"8bf91a48d980fb82","fromSide":"top","toNode":"3fbe1d97e460296a","toSide":"bottom","label":"删除容器"},
+		{"id":"8215367fded0270b","fromNode":"05cd69d46c80cd5a","fromSide":"bottom","toNode":"9974c795ab659749","toSide":"bottom","label":"docker start"}
+	]
+}

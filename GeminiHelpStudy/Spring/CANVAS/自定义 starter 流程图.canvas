@@ -1,0 +1,17 @@
+{
+	"nodes":[
+		{"id":"node1","type":"text","text":"### 1. 创建 Starter 项目\n\n**项目名**: `aliyun-oss-spring-boot-starter`\n**类型**: Maven / Java\n**组织名**: `com.aliyun.oss`\n\n**操作**:\n* 仅保留 `pom.xml`\n* 删除 src 等其他文件\n* `pom.xml` 中保留基础 Spring Boot 起步依赖","x":-600,"y":-240,"width":400,"height":280,"color":"1"},
+		{"id":"node2","type":"text","text":"### 2. 创建 Autoconfigure 项目\n\n**项目名**: `aliyun-oss-spring-boot-autoconfigure`\n**配置**: 同上\n\n**操作**:\n* **保留** `src` 目录\n* **删除** 启动类、配置文件、测试文件夹","x":60,"y":-240,"width":400,"height":260,"color":"2"},
+		{"id":"node3","type":"text","text":"### 3. 依赖引入与核心逻辑\n\n**依赖操作**:\n1. 在 `starter` 的 pom 中引入 `autoconfigure` 项目。\n2. 引入阿里云 OSS 所有依赖。\n\n**代码编写**:\n* **位置**: `src.main.java.com.aliyun.oss`\n* 放入所有工具类、Bean。\n* **注意**: 手写 `getter`/`setter`/`toString`。\n\n#### ⚠️ 关键约束\n* **禁止使用**: `@Component` (会导致 `@Autowired` 失效)\n* **必须使用**: 有参构造方法","x":-600,"y":285,"width":400,"height":495,"color":"3"},
+		{"id":"node4","type":"text","text":"### 4. 自动配置类定义\n\n创建 `XxxxAutoConfiguration`。\n\n**解决无 @Component 问题**:\n使用 `@EnableConfigurationProperties` 激活属性配置类。\n\n```java\n@EnableConfigurationProperties(AliyunOSSProperties.class)\n@Configuration\npublic class AliyunOSSAutoConfiguration {\n    \n    // 定义 Bean\n    @Bean\n    @ConditionalOnMissingBean\n    public OSSClient ossClient(AliyunOSSProperties properties) {\n        // 使用有参构造注入或直接构建\n        return new OSSClient(...);\n    }\n}\n```","x":-140,"y":285,"width":560,"height":535,"color":"4"},
+		{"id":"node5","type":"text","text":"### 5. 注册自动配置 (SPI)\n\n**路径**:\n`src/main/resources/META-INF/spring/`\n\n**文件**:\n`org.springframework.boot.autoconfigure.AutoConfiguration.imports`\n\n**内容**:\n写入 `XxxxAutoConfiguration` 的全类名。","x":660,"y":40,"width":400,"height":280,"color":"5"},
+		{"id":"node6","type":"text","text":"### 6. 测试与使用\n\n1. 在其他项目中引入 `aliyun-oss-spring-boot-starter` 依赖。\n2. 在 `application.yml` 配置相关参数。\n3. 注入 Service 进行测试。","x":660,"y":585,"width":400,"height":175,"color":"6"}
+	],
+	"edges":[
+		{"id":"edge1","fromNode":"node1","fromSide":"right","toNode":"node2","toSide":"left"},
+		{"id":"edge2","fromNode":"node2","fromSide":"bottom","toNode":"node3","toSide":"top"},
+		{"id":"edge3","fromNode":"node3","fromSide":"right","toNode":"node4","toSide":"left"},
+		{"id":"edge4","fromNode":"node4","fromSide":"right","toNode":"node5","toSide":"left"},
+		{"id":"edge5","fromNode":"node5","fromSide":"bottom","toNode":"node6","toSide":"top"}
+	]
+}

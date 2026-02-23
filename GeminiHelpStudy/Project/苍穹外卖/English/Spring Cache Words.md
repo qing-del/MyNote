@@ -1,0 +1,21 @@
+- `cache` 
+	- n. 高速缓存器
+	- v. 将（数据）存入高速缓存器
+- `feature`
+	- n. 特征、特点
+	- v. 以...为特色；起重要作用
+- `evict`
+	- v. 逐出、回收
+- `scene`
+	- n. 场景
+- `business`
+	- n. 业务
+- `scenario`
+	- n. 设想；场景
+- `serializable`
+	- adj. 可串化的、可序列化的
+- `preliminary`
+	- adj. 前置的
+- `inspection`
+	- n. 检查、审视
+- 

@@ -1,0 +1,25 @@
+{
+	"nodes":[
+		{"id":"controllers","type":"text","text":"### 🎮 Controller Layer (RestAPI)\n\n- **AuthController**: `/auth/login` (颁发 Token)\n- **TaskController**: 任务 CRUD, AI 生成\n- **ShopController**: `/shop/buy` (接收 JSON Body)\n- **GlobalExceptionHandler**: 统一捕获 `TaskException`","x":-260,"y":-100,"width":360,"height":300,"color":"3"},
+		{"id":"entity_dto","type":"text","text":"### 📦 Entities & DTOs\n\n- **Entity**: `User`, `Task`, `PlayerStatus`, `Item`\n- **DTO**: `BuyRequest` (解决 Post 参数问题), `PageResult`\n- **Response**: `InfoResponse`","x":-260,"y":300,"width":360,"height":200,"color":"6"},
+		{"id":"frontend_ui","type":"text","text":"### 🖥️ Frontend (Vue 3)\n**Tech**: Vite + Element Plus\n\n- **Login.vue**: JWT 存储 `localStorage`\n- **Game.vue**: 任务列表 (PageHelper), 状态面板\n- **Shop.vue**: 商店网格, 购买交互\n- **request.js**: Axios 拦截器 (Auto-Bearer Token)","x":-1460,"y":-100,"width":400,"height":380,"color":"1"},
+		{"id":"security_layer","type":"text","text":"### 🛡️ Security Layer\n**Spring Security + JWT**\n\n1. **JwtAuthenticationFilter**: 拦截请求\n2. **Header Check**: 解析 `Authorization: Bearer ...`\n3. **UserDetail**: 注入 SecurityContext\n4. **Exception**: 401/403 统一处理","x":-780,"y":-100,"width":350,"height":260,"color":"2"},
+		{"id":"service_shop","type":"text","text":"### 🛒 ShopService\n[[ShopServiceImpl.java]]\n\n**核心逻辑 (@Transactional)**\n1. 库存检查 (Stack)\n2. 余额检查 (Switch-Case 多货币)\n3. **原子操作**: 扣钱 + 发货 + 扣库存","x":300,"y":200,"width":380,"height":240,"color":"4"},
+		{"id":"service_task","type":"text","text":"### 🧠 TaskService & AI\n[[TaskServiceImpl.java]]\n\n- **PageHelper**: 分页查询任务列表\n- **Data Isolation**: `where user_id = ?`\n- **AiTaskService**: 注入历史任务 Context (Memory)","x":300,"y":-160,"width":380,"height":280,"color":"4"},
+		{"id":"mappers","type":"text","text":"### 🛠️ Mapper Layer (MyBatis)\n\n- **UserMapper**: `findByUsername`\n- **ShopMapper**: 动态 SQL 查询商品\n- **TaskMapper**: `useGeneratedKeys=\"true\"` (回填 ID)","x":800,"y":0,"width":300,"height":300,"color":"5"},
+		{"id":"ai_cloud","type":"text","text":"☁️ **DeepSeek V3**\n(Context Aware)","x":300,"y":-340,"width":380,"height":100,"color":"6"},
+		{"id":"db_mysql","type":"text","text":"🗄️ **MySQL Database**\n\n- `users`: 鉴权\n- `shop_items`: 商品库\n- `task`: 增加 `user_id` 外键","x":1200,"y":60,"width":240,"height":180,"color":"6"}
+	],
+	"edges":[
+		{"id":"e1","fromNode":"frontend_ui","fromSide":"right","toNode":"security_layer","toSide":"left","label":"HTTP Request (w/ Token)"},
+		{"id":"e2","fromNode":"security_layer","fromSide":"right","toNode":"controllers","toSide":"left","label":"Authenticated"},
+		{"id":"e3","fromNode":"security_layer","fromSide":"bottom","toNode":"frontend_ui","toSide":"bottom","color":"1","label":"403 (Force Logout)"},
+		{"id":"e4","fromNode":"controllers","fromSide":"right","toNode":"service_task","toSide":"left","label":"Task Ops"},
+		{"id":"e5","fromNode":"controllers","fromSide":"right","toNode":"service_shop","toSide":"left","label":"Buy Ops"},
+		{"id":"e6","fromNode":"service_task","fromSide":"right","toNode":"mappers","toSide":"left","label":"CRUD"},
+		{"id":"e7","fromNode":"service_shop","fromSide":"right","toNode":"mappers","toSide":"left","label":"Transaction"},
+		{"id":"e8","fromNode":"mappers","fromSide":"right","toNode":"db_mysql","toSide":"left","label":"SQL"},
+		{"id":"e9","fromNode":"controllers","fromSide":"bottom","toNode":"entity_dto","toSide":"top","label":"Uses"},
+		{"id":"e10","fromNode":"service_task","fromSide":"top","toNode":"ai_cloud","toSide":"bottom","label":"Prompt + History"}
+	]
+}

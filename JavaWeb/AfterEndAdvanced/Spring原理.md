@@ -1,8 +1,9 @@
 # Spring 原理篇
 ## 目录
 - [配置优先级](#配置优先级)
-    - 
-- Bean 管理
+    - [配置文件](#配置文件)
+    - [[#Java系统属性 ＆ 命令行参数]]
+- 
 - SpringBoot 原理
 
 ---
@@ -13,9 +14,6 @@
     - application.properties
     - application.yml
     - application.yaml
-
-<details>
-<summary><b>· 配置文件优先级示例</b></summary>
 
 ```properties
 server.port=8081
@@ -30,8 +28,6 @@ server:
 server:
   port: 8083
 ```
-
-</details>
 
 - 配置文件优先级：properties > yml > yaml
 - 在实际开发中，一般使用 yml 文件，因为 yml 文件更易读。
@@ -50,3 +46,13 @@ server:
         - 然后勾选`Add VM options`和`Program arguments`即可
 
 - 优先级：命令行参数 > Java系统属性 > 配置文件
+
+---
+## Bean管理
+### Bean作用域
+- Spring支持五种作用域，后三种在web环境生效：
+	- singleton（默认）：创建单个实例
+	- prototype：每次使用都会创建一个新的示例
+	- request：
+	- session：
+	- application：
