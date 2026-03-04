@@ -128,6 +128,7 @@ DROP VIEW [IF EXISTS] 视图名称;
 -- 修改结束分隔符，避免与内部的 ; 冲突
 DELIMITER $$
 
+-- 创建存储过程
 CREATE PROCEDURE p_calc_score(IN score INT, OUT result VARCHAR(10))
 BEGIN
     -- IF 判断示例
@@ -140,12 +141,30 @@ BEGIN
     END IF;
 END $$
 
-DELIMITER ;
+DELIMITER ;  -- 重新改为";"
 
 -- 调用存储过程
 CALL p_calc_score(75, @res);
 -- 查看输出结果
 SELECT @res;
+```
+> 要在命令行中执行就需要使用到`delimiter`指令
+> 如果是在console中执行 可以忽略
+
+查看存储过程
+
+```sql
+-- 查看指定数据库的存储过程及状态信息
+SELECT * FROM INFORMATION_SCHEMA.ROUTINES WHERE ROUTINE_SCHEMA = '数据库名字';
+
+-- 查看某个存储过程的定义
+SHOW CREATE PROCEDURE 存储过程名称;
+```
+
+删除存储过程
+
+```sql
+DROP PROCEDURE [IF EXISTS] 存储过程名称;
 ```
 
 ### 3. 游标 (Cursor) 与 条件处理程序 (Handler)
