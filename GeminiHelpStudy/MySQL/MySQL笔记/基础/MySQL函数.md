@@ -84,3 +84,41 @@ select
     ifnull(dept_id, 0),
 from emp;
 ```
+
+---
+
+### 实战
+#### 字符串函数实战
+- 公司要将员工号码改为6位数，不足六位数字的在前面补零
+```sql
+update employee set number=lpad(number, 6, '0');
+```
+
+#### 数值函数实战
+- 生成一个6位的验证码
+```sql
+select lpad(round(rand()*1000000, 0), 6, '0');
+```
+
+#### 日期函数实战
+- 查询所有员工的入职天数，并根据入职天数倒序排序
+```sql
+select datediff(entrydate, curdate()) as entry_day 
+from employee
+order by entry_day desc;
+```
+
+#### 流程函数实战
+- 查统班级各个学员的成绩，展示的规则如下：
+	- `>=85` - 优秀
+	- `>=60` - 及格
+	- `otherwise` - 不及格
+```sql
+select
+	id,
+	name,
+	(case math when math>=85 then '优秀' when math>=60 then '及格' else '不及格' end) as '数学',
+	(case math when english>=85 then '优秀' when english>=60 then '及格' else '不及格' end) as '英语',
+	(case math when chinese>=85 then '优秀' when chinese>=60 then '及格' else '不及格' end) as '语文'
+from student;
+```

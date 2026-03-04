@@ -8,20 +8,35 @@
         "type": "tabs",
         "children": [
           {
-            "id": "7a362601bdd07974",
+            "id": "16062ecdc355003f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "MySQL/MySQL原理/MySQL执行原理.md",
-                "mode": "source",
+                "file": "MySQL/MySQL原理/MySQL索引原理.md",
+                "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "MySQL执行原理"
+              "title": "MySQL索引原理"
+            }
+          },
+          {
+            "id": "afd0e2e94bfe0266",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "MySQL/MySQL笔记/进阶/MySQL视图、存储过程与触发器.md",
+                "mode": "preview",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "MySQL视图、存储过程与触发器"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -94,7 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Vue/Learning/语句编写与API.md",
+                "file": "MySQL/MySQL笔记/进阶/MySQL索引.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +119,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "语句编写与API 的反向链接列表"
+              "title": "MySQL索引 的反向链接列表"
             }
           },
           {
@@ -183,62 +198,63 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "7a362601bdd07974",
+  "active": "afd0e2e94bfe0266",
   "lastOpenFiles": [
-    "MySQL/MySQL原理/MySQL大体框架.canvas",
-    "MySQL/MySQL原理/MySQL执行原理.md",
-    "MySQL/MySQL原理/MySQL存储结构.md",
-    "MySQL/MySQL原理/未命名",
-    "MySQL/MySQL原理/img/MySQL存储结构8.png",
-    "MySQL/MySQL原理/img/MySQL存储结构7.png",
-    "MySQL/MySQL原理/img/MySQL存储结构6.png",
-    "MySQL/MySQL原理/img/MySQL存储结构5.png",
-    "MySQL/MySQL原理/img/MySQL存储结构4.png",
-    "MySQL/MySQL原理/img/MySQL存储结构3.png",
-    "MySQL/MySQL原理/img/MySQL存储结构2.png",
-    "MySQL/MySQL原理/img/MySQL存储结构1.png",
-    "MySQL/MySQL原理/img",
-    "Exam/《苍穹外卖》/Claude 考官打分《苍穹外卖》期末考试.md",
-    "Exam/《苍穹外卖》/ChatGPT考官打分《苍穹外卖》期末考试.md",
-    "Exam/《苍穹外卖》/《苍穹外卖》考核.md",
-    "Spring/SpringAOP.md",
-    "Exam/《苍穹外卖》/Claude 考官二次打分.md",
-    "Exam/《苍穹外卖》/Gemini 考官打分《苍穹外卖》期末考试.md",
-    "OtherUnits/Apache POI.md",
-    "MySQL/MySQL原理",
-    "MySQL/未命名.md",
-    "Exam/《苍穹外卖》",
-    "Personal/玩家信息.canvas",
-    "未命名.md",
-    "Exam",
-    "Frontend/Vue/LearningVue/Vue3基础语句 ＆ API风格.md",
-    "Frontend/Vue/LearningVue/Vue 3 网络请求与 Axios 封装.md",
-    "Frontend/Vue/task-systemVue/3-错误分析.md",
-    "Frontend/Vue/task-systemVue/2-基本配置.md",
-    "Frontend/Vue/task-systemVue/1-环境与依赖.md",
-    "Frontend/Vue/LearningVue/ElementPlus.md",
-    "Frontend/Vue/LearningVue/Vue 3 Router 学习笔记.md",
-    "Frontend/Vue/LearningVue/前端打包与 Nginx 部署指南.md",
-    "Frontend/Vue/LearningVue/环境与工程创建.md",
-    "Frontend/Vue/img/表单校验.png",
-    "Frontend/Vue/img/vue项目构建选项.png",
-    "Spring/Spring Task.md",
-    "Spring/Spring Cache.md",
+    "MySQL/MySQL笔记/进阶/MySQL-SQL优化.md",
+    "MySQL/MySQL笔记/进阶/MySQL视图、存储过程与触发器.md",
+    "MySQL/MySQL笔记/Statement/MySQL的limit关键词优化原理.md",
+    "MySQL/MySQL原理/MySQL索引原理.md",
+    "ErrorLog/广财抢课脚本.md",
+    "ErrorLog",
+    "MySQL/MySQL笔记/进阶/MySQL索引.md",
+    "MySQL/MySQL笔记/进阶/MySQL索引2.md",
+    "MySQL/MySQL笔记/Statement/MySQL联合索引范围查询失效问题.md",
+    "MySQL/MySQL笔记/Statement",
+    "MySQL/MySQL笔记/进阶/MySQL存储引擎.md",
+    "MySQL/MySQL笔记/基础/MySQL约束.md",
+    "MySQL/MySQL笔记/基础/MySQL基础事务.md",
+    "MySQL/MySQL笔记/基础/MySQL多表查询.md",
     "MySQL/JDBC.md",
-    "MySQL/函数.md",
+    "Personal/iFAST.md",
+    "Project/苍穹外卖/Design/项目实战参考答案.md",
+    "Project/苍穹外卖/Design/项目实战要求（Day9）.md",
+    "Project/苍穹外卖/Design/项目实战-套餐管理（Day4）.md",
+    "Project/苍穹外卖/Design/数据库设计文档.md",
+    "MySQL/MySQL笔记/进阶/img/MySQL存储引擎存储图（AI生成）.jpg",
+    "MySQL/MySQL笔记/进阶/img/未确认 632363.crdownload",
+    "MySQL/MySQL笔记/进阶/img",
     "MySQL/MySQL-表-知识点.md",
-    "Personal",
-    "Frontend/JavaScript",
-    "Frontend/Vue",
-    "Orther",
-    "Project",
+    "MySQL/MySQL笔记/进阶",
+    "MySQL/MySQL刷题.md",
+    "MySQL/MySQL-表-知识点导图.canvas",
+    "MySQL/MySQL笔记/基础/img/MySQL约束表.png",
+    "MySQL/MySQL笔记/基础/img/MySQL外键约束行为模式.png",
+    "MySQL/MySQL笔记/基础/img/MySQL外键约束概念图.png",
+    "MySQL/MySQL笔记/基础/MySQL函数.md",
+    "MySQL/img/MySQL字符串函数.png",
+    "MySQL/img/MySQL数值函数.png",
+    "MySQL/img/MySQL日期函数.png",
+    "MySQL/MySQL笔记/基础/img/MySQL事务简介图.png",
+    "MySQL/MySQL笔记/基础/img/MySQL多表查询概念图.png",
+    "MySQL/MySQL笔记/基础/img",
+    "MySQL/MySQL笔记/基础",
+    "Personal/玩家信息.canvas",
+    "Internet/搭建节点.md",
+    "MySQL/MySQL笔记",
+    "Orther/Study Line For second grade of university.md",
+    "Exam/《苍穹外卖》/《苍穹外卖》考核.md",
+    "MySQL/img",
+    "MySQL流程函数.png",
+    "MySQL/MySQL原理/MySQL锁与事务.md",
+    "MySQL/MySQL原理/Details/MySQL执行原理详细.md",
+    "MySQL/MySQL原理/Details/MySQL大体框架.canvas",
+    "MySQL/MySQL原理/Details",
     "Orther/LoveLogic.canvas",
     "Project/task-system-note/two/Second_Stage_Architecture.canvas",
     "Project/task-system-note/two/Second_Stage_Architecture_CANVAS.canvas",
     "Project/task-system-note/one/First_Stage_Canvas.canvas",
     "Linux&Docker/Docker/Docker 命令图.canvas",
     "Spring/CANVAS/自定义 starter 流程图.canvas",
-    "Spring/CANVAS/Spring自动配置.canvas",
-    "MySQL/MySQL-表-知识点导图.canvas"
+    "Spring/CANVAS/Spring自动配置.canvas"
   ]
 }
