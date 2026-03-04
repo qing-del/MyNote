@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "MySQL/MySQL笔记/进阶/MySQL视图、存储过程与触发器.md",
+                "file": "Personal/Git.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "MySQL视图、存储过程与触发器"
+              "title": "Git"
             }
           }
         ],
@@ -200,8 +200,9 @@
   },
   "active": "afd0e2e94bfe0266",
   "lastOpenFiles": [
-    "MySQL/MySQL笔记/进阶/MySQL-SQL优化.md",
     "MySQL/MySQL笔记/进阶/MySQL视图、存储过程与触发器.md",
+    "Personal/Git.md",
+    "MySQL/MySQL笔记/进阶/MySQL-SQL优化.md",
     "MySQL/MySQL笔记/Statement/MySQL的limit关键词优化原理.md",
     "MySQL/MySQL原理/MySQL索引原理.md",
     "ErrorLog/广财抢课脚本.md",
@@ -246,7 +247,6 @@
     "MySQL/img",
     "MySQL流程函数.png",
     "MySQL/MySQL原理/MySQL锁与事务.md",
-    "MySQL/MySQL原理/Details/MySQL执行原理详细.md",
     "MySQL/MySQL原理/Details/MySQL大体框架.canvas",
     "MySQL/MySQL原理/Details",
     "Orther/LoveLogic.canvas",
