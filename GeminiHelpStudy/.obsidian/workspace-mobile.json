@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "MySQL/MySQL笔记/进阶/MySQL视图、存储过程与触发器.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
@@ -112,7 +112,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "MySQL/MySQL笔记/进阶/MySQL视图、存储过程与触发器.md",
+            "file": "Personal/Git.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -131,7 +131,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "MySQL/MySQL笔记/进阶/MySQL视图、存储过程与触发器.md",
+            "file": "Personal/Git.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           },
@@ -145,7 +145,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "MySQL/MySQL笔记/进阶/MySQL视图、存储过程与触发器.md",
+            "file": "Personal/Git.md",
             "followCursor": false,
             "showSearch": false,
             "searchQuery": ""
@@ -170,6 +170,8 @@
   },
   "active": "d1409fccf1b78d9d",
   "lastOpenFiles": [
+    "Personal/Git.md",
+    "MySQL/MySQL笔记/进阶/MySQL视图、存储过程与触发器.md",
     "ErrorLog/广财抢课脚本.md",
     "未识别出时间戳.md"
   ]

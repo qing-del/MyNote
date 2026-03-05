@@ -112,9 +112,16 @@ DROP VIEW [IF EXISTS] 视图名称;
 
 |**变量类型**|**作用域与生命周期**|**定义与赋值方式**|
 |---|---|---|
-|**系统变量**|分为全局 (`GLOBAL`) 和会话 (`SESSION`) 级别。由 MySQL 服务器提供。|`SHOW VARIABLES LIKE '...';`<br><br>  <br><br>`SET SESSION 变量名 = 值;`|
+|**系统变量**|分为全局 (`GLOBAL`) 和会话 (`SESSION`) 级别。由 MySQL 服务器提供。|`SHOW VARIABLES LIKE '...';`<br><br>  <br><br>`SET SESSION @@变量名 = 值;`|
 |**用户定义变量**|当前客户端会话级别。不需要提前声明，直接使用。|`@变量名`<br><br>  <br><br>`SET @age = 20;`|
 |**局部变量**|仅在存储过程的 `BEGIN ... END` 块内有效。必须提前声明。|`DECLARE 变量名 类型 [DEFAULT 值];`<br><br>  <br><br>`SET 变量名 = 值;`|
+
+> 如果设置变量的时候，需要区别设置`global`/`seesion`的话
+> `set [global/seesion] @@变量名 = Xx;`（`＠＠`表示系统变量，`＠`表示用户变量）
+> 如果初始化／创建用户变量的时候没有对其进行赋值，直接进行查询并不会出现报错，会查询到`NULL`
+
+> 在MySQL中`=`能表示等值，也能表示赋值
+> 为了做区分，表示等值的时候可以用`:=`来表示等值
 
 ### 2. 存储过程核心语法与参数
 存储过程支持三种参数类型：
@@ -167,8 +174,15 @@ SHOW CREATE PROCEDURE 存储过程名称;
 DROP PROCEDURE [IF EXISTS] 存储过程名称;
 ```
 
+> [!info] 在存储过程中的常见逻辑关键词
+> `if` 
+> `case`(相当于Java中的switch) 
+> `while`
+> `repeat`（相当于和前面的`while`差不多）
+> `loop`（其实也和while差不多，不过可以对某个变量进行特别操作）
+
 ### 3. 游标 (Cursor) 与 条件处理程序 (Handler)
-- **游标**：用来存储查询结果集的数据类型，允许在存储过程中逐行遍历、处理这些数据。
+- **游标**：用来存储查询**结果集**的数据类型，允许在存储过程中逐行遍历、处理这些数据。
 - **条件处理程序**：类似于 Java 中的 `try-catch`，用于在发生错误或游标遍历结束（状态码 `02000`）时，执行特定的应对逻辑。
 
 ```SQL
@@ -192,21 +206,35 @@ END WHILE;
 CLOSE u_cursor;
 ```
 
+> [!info] 也可以利用状态码来关闭游标
+> ```sql
+> -- 即为检测到出现 02000 状态码的时候会自己关闭游标
+> DECLARE EXIT HANDLER FOR SQLSTATE '02000' CLOSE u_cursor;
+> ```
+
 ### 4. 存储函数
 
 存储函数是有返回值的存储过程，**它的参数只能是 `IN` 类型**，并且必须包含 `RETURN` 语句。
 
 ```SQL
 CREATE FUNCTION fun_name(参数列表) RETURNS 返回类型
+RETURN [结果类型] [characteristic]
 BEGIN
     -- 逻辑代码
     RETURN 结果;
 END;
 ```
 
+> [!warning] 关于`characteristic`的说明
+> 在高版本的MySQL中，会不允许`characteristic`为空
+> - `characteristic`的值：
+> 	- `DETERMINSTIC`: 相同的输入总是产生相同的输出
+> 	- `NO SQL`: 不包含SQL语句
+> 	- `READS SQL data`: 包含读取数据的语句，但不包含写入数据的语句
+
 ---
 
-三、 触发器 (Trigger)
+## 三、 触发器 (Trigger)
 
 - **概念**：与表有关的数据库对象，在满足定义条件时（如对表进行 `INSERT`、`UPDATE`、`DELETE` 时）自动触发并执行内部的 SQL 集合。
 - **核心作用**：数据完整性约束、日志记录（审计）、数据校验。
