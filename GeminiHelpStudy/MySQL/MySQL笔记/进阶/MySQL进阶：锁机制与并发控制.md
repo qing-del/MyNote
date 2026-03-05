@@ -98,21 +98,25 @@ UNLOCK TABLES;
     - **意向共享锁 (IS)**：与表锁共享锁 (read) 兼容，与表锁排他锁 (write) 互斥。
     - **意向排他锁 (IX)**：与表锁的 read 和 write 都互斥。_(注：意向锁之间不会互斥)_
 
+> 关于互斥的详细理解：[[关于行级锁、意向锁、表锁的关系]]
+
 ---
 
 ## 三、 行级锁 (InnoDB 核心)
 
 - **概念**：每次操作锁住对应的行数据。锁定粒度最小，发生锁冲突的概率最低，并发度最高 。
 
-> [!danger] 底层原理警告 InnoDB 的数据是基于索引组织的，**行锁是通过对索引上的索引项加锁来实现的，而不是对记录加的锁** 。如果 SQL 语句没有走索引，那么 InnoDB 将把整张表的所有记录都锁住，**行锁将退化为表锁**！
+> [!failure] 警告 
+> 底层原理警告 InnoDB 的数据是基于索引组织的，**行锁是通过对索引上的索引项加锁来实现的，而不是对记录加的锁** 。
+> 如果 SQL 语句没有走索引，那么 InnoDB 将把整张表的所有记录都锁住，**行锁将退化为表锁**！
 
 ### 1. 行级锁的分类
 
-|**分类**|**概念简述**|**核心作用**|**课程对应**|
-|---|---|---|---|
-|**行锁 (Record Lock)**|锁定单个行记录的锁，防止其他事务对此行进行 `UPDATE` 和 `DELETE`。|在 RC (读已提交) 和 RR (可重复读) 隔离级别下都支持。||
-|**间隙锁 (Gap Lock)**|锁定索引记录之间的间隙（不含该记录），确保索引记录的间隙不变。|防止其他事务在这个间隙进行 `INSERT`，产生幻读现象。||
-|**临键锁 (Next-Key Lock)**|行锁和间隙锁的组合，同时锁住数据及其前面的间隙。|RR (可重复读) 隔离级别的默认行级锁。||
+|**分类**|**概念简述**|**核心作用**|
+|---|---|---|
+|**行锁 (Record Lock)**|锁定单个行记录的锁，防止其他事务对此行进行 `UPDATE` 和 `DELETE`。|在 RC (读已提交) 和 RR (可重复读) 隔离级别下都支持。|
+|**间隙锁 (Gap Lock)**|锁定索引记录之间的间隙（不含该记录），确保索引记录的间隙不变。|防止其他事务在这个间隙进行 `INSERT`，产生幻读现象。|
+|**临键锁 (Next-Key Lock)**|行锁和间隙锁的组合，同时锁住数据及其前面的间隙。|RR (可重复读) 隔离级别的默认行级锁。|
 
 ### 2. 行锁 (Record Lock)
 
@@ -124,7 +128,6 @@ UNLOCK TABLES;
     - `INSERT` / `UPDATE` / `DELETE`：自动加排他锁（X）。
     - `SELECT ... FOR UPDATE`：加排他锁（X）。
 
-
 ### 3. 间隙锁 & 临键锁 加锁规则
 
 默认情况下，InnoDB 运行在 `REPEATABLE READ` 隔离级别下，使用 **Next-Key Lock** 进行搜索和索引扫描 。
@@ -135,6 +138,48 @@ UNLOCK TABLES;
 
 - **等值查询 (普通非唯一索引)**：
     - 不仅会给匹配到的记录加锁，还会给该记录前后的间隙加上 **间隙锁 (Gap Lock)**，以防止其他事务在此处插入相同的值。
+
+- **范围查询（唯一索引）**：
+	- 不仅仅会匹配到的数据行上锁，还会给**下一条数据前**的位置（间隙）加上**间隙锁**
+> 当下界为`supremum pseudo-record`时，表示为`+∞`
+
+> 关于查询锁情况时，为什么间隙锁会显示右边节点的`id`，而不是左边的`id` -> [[Lock_date显示右边锁id的问题]]
+> 关于查询锁时，出现`lock_mode=S`，但是其实是临间锁的问题 -> [[当lock_mode=S时是临间锁的问题]]
+
+### 4. 查看锁情况
+
+> [!info] 查看**意向锁**及**行锁**的加锁情况
+> `select object_schema,object_name,index_name,lock_type,lock_mode,lock_data from performance_schema.data_locks;`
+
+|**字段名**|**含义解析**|**关键点**|
+|---|---|---|
+|**`object_schema`**|数据库名称|确定锁发生的库。|
+|**`object_name`**|表名称|确定被锁定的具体物理表。|
+|**`index_name`**|索引名称|锁通常是加在索引上的。如果是 `PRIMARY` 表示主键锁；如果是二级索引名，则是该索引上的锁；如果是 `NULL`，通常是表级锁。|
+|**`lock_type`**|锁的粒度类型|`TABLE`（表锁）或 `RECORD`（行/记录锁）。|
+|**`lock_mode`**|**锁模式 (核心)**|描述锁的具体性质（如 `X`, `S`, `IX`, `GAP` 等），下文详细解释。|
+|**`lock_data`**|锁定的具体数据|显示被锁定的具体键值（如主键 ID）。如果是间隙锁，显示的是该间隙的上界值。|
+
+- **关于`lock_mode`**
+	- **`X` (Exclusive Lock)**: 排他锁/写锁。只有持有该锁的事务能修改数据，其他事务既不能读也不能写。
+	- **`S` (Shared Lock)**: 共享锁/读锁。多个事务可以同时持有，但不能进行修改。
+	- **`IX`, `IS`**: 意向排他锁/意向共享锁。这是表级锁，表示事务准备在表中的某些行上加 `X` 或 `S` 锁。
+	- **`REC_NOT_GAP`**: 表示只锁定了这一条记录，不包含它前后的间隙（通常发生在唯一索引的等值查询中）。
+	- **`GAP`**: 间隙锁。不锁定记录本身，只锁定记录之间的空隙，防止幻读（幻读是指在同一事务中，前后两次查询结果条数不一致）。
+	- **`X, GAP`**: 组合模式，表示这是一个排他的间隙锁。
+
+#### 进阶知识：关联查询
+- 单看这条 SQL 只能看到“锁的状态”，如果想看到**“谁在等谁”**，建议关联 `data_lock_waits` 表：
+```sql
+SELECT 
+    r.trx_id AS waiting_trx_id,
+    r.lock_mode AS waiting_lock_mode,
+    b.trx_id AS blocking_trx_id,
+    b.lock_mode AS blocking_lock_mode
+FROM performance_schema.data_lock_waits w
+JOIN performance_schema.data_locks r ON r.engine_lock_id = w.requesting_engine_lock_id
+JOIN performance_schema.data_locks b ON b.engine_lock_id = w.blocking_engine_lock_id;
+```
 
 ---
 

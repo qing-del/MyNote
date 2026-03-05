@@ -120,8 +120,11 @@ DROP VIEW [IF EXISTS] 视图名称;
 > `set [global/seesion] @@变量名 = Xx;`（`＠＠`表示系统变量，`＠`表示用户变量）
 > 如果初始化／创建用户变量的时候没有对其进行赋值，直接进行查询并不会出现报错，会查询到`NULL`
 
-> 在MySQL中`=`能表示等值，也能表示赋值
-> 为了做区分，表示等值的时候可以用`:=`来表示等值
+> [!tip] 💡提示
+> 在 MySQL 中，`=` 在 `SET` 或 `UPDATE` 语句中可以表示赋值
+> 
+> 但在 `SELECT` 或 `WHERE` 中表示**等值比较**
+> 而 **`:=` 是专门的赋值符号**（在任何地方都表示赋值）
 
 ### 2. 存储过程核心语法与参数
 存储过程支持三种参数类型：
@@ -191,7 +194,7 @@ DECLARE 变量1 数据类型;
 -- 1. 声明游标
 DECLARE u_cursor CURSOR FOR SELECT id FROM user;
 -- 2. 声明条件处理程序 (当找不到数据时，将标记变量设为 1)
-DECLARE EXIT HANDLER FOR NOT FOUND SET has_no_data = 1;
+DECLARE CONTINUE HANDLER FOR NOT FOUND SET has_no_data = 1;
 
 -- 3. 打开游标
 OPEN u_cursor;
@@ -228,7 +231,7 @@ END;
 > [!warning] 关于`characteristic`的说明
 > 在高版本的MySQL中，会不允许`characteristic`为空
 > - `characteristic`的值：
-> 	- `DETERMINSTIC`: 相同的输入总是产生相同的输出
+> 	- `DETERMINISTIC`: 相同的输入总是产生相同的输出
 > 	- `NO SQL`: 不包含SQL语句
 > 	- `READS SQL data`: 包含读取数据的语句，但不包含写入数据的语句
 

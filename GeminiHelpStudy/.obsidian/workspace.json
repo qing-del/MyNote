@@ -13,30 +13,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "MySQL/MySQL原理/MySQL索引原理.md",
+                "file": "MySQL/MySQL原理/MySQL锁与事务.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "MySQL索引原理"
-            }
-          },
-          {
-            "id": "afd0e2e94bfe0266",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Personal/Git.md",
-                "mode": "preview",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "Git"
+              "title": "MySQL锁与事务"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -198,20 +183,25 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "afd0e2e94bfe0266",
+  "active": "16062ecdc355003f",
   "lastOpenFiles": [
+    "MySQL/MySQL笔记/进阶/MySQL进阶：锁机制与并发控制.md",
+    "MySQL/MySQL笔记/Statement/MySQL联合索引范围查询失效问题.md",
+    "MySQL/MySQL笔记/Statement/Lock_date显示右边锁id的问题.md",
+    "MySQL/MySQL笔记/Statement/当lock_mode=S时是临间锁的问题.md",
     "MySQL/MySQL笔记/进阶/MySQL视图、存储过程与触发器.md",
-    "Personal/Git.md",
-    "MySQL/MySQL笔记/进阶/MySQL-SQL优化.md",
-    "MySQL/MySQL笔记/Statement/MySQL的limit关键词优化原理.md",
+    "MySQL/MySQL原理/MySQL锁与事务.md",
     "MySQL/MySQL原理/MySQL索引原理.md",
+    "MySQL/MySQL笔记/Statement/关于行级锁、意向锁、表锁的关系.md",
+    "MySQL/MySQL笔记/进阶/MySQL索引2.md",
+    "MySQL/MySQL笔记/Statement/MySQL的limit关键词优化原理.md",
+    "MySQL/MySQL笔记/进阶/MySQL-SQL优化.md",
+    "MySQL/MySQL笔记/进阶/MySQL存储引擎.md",
+    "MySQL/MySQL笔记/进阶/MySQL索引.md",
+    "Personal/Git.md",
     "ErrorLog/广财抢课脚本.md",
     "ErrorLog",
-    "MySQL/MySQL笔记/进阶/MySQL索引.md",
-    "MySQL/MySQL笔记/进阶/MySQL索引2.md",
-    "MySQL/MySQL笔记/Statement/MySQL联合索引范围查询失效问题.md",
     "MySQL/MySQL笔记/Statement",
-    "MySQL/MySQL笔记/进阶/MySQL存储引擎.md",
     "MySQL/MySQL笔记/基础/MySQL约束.md",
     "MySQL/MySQL笔记/基础/MySQL基础事务.md",
     "MySQL/MySQL笔记/基础/MySQL多表查询.md",
@@ -231,7 +221,6 @@
     "MySQL/MySQL笔记/基础/img/MySQL约束表.png",
     "MySQL/MySQL笔记/基础/img/MySQL外键约束行为模式.png",
     "MySQL/MySQL笔记/基础/img/MySQL外键约束概念图.png",
-    "MySQL/MySQL笔记/基础/MySQL函数.md",
     "MySQL/img/MySQL字符串函数.png",
     "MySQL/img/MySQL数值函数.png",
     "MySQL/img/MySQL日期函数.png",
@@ -240,13 +229,9 @@
     "MySQL/MySQL笔记/基础/img",
     "MySQL/MySQL笔记/基础",
     "Personal/玩家信息.canvas",
-    "Internet/搭建节点.md",
     "MySQL/MySQL笔记",
-    "Orther/Study Line For second grade of university.md",
-    "Exam/《苍穹外卖》/《苍穹外卖》考核.md",
     "MySQL/img",
     "MySQL流程函数.png",
-    "MySQL/MySQL原理/MySQL锁与事务.md",
     "MySQL/MySQL原理/Details/MySQL大体框架.canvas",
     "MySQL/MySQL原理/Details",
     "Orther/LoveLogic.canvas",
