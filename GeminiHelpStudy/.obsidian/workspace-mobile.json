@@ -20,8 +20,23 @@
               "icon": "lucide-file",
               "title": "MySQL视图、存储过程与触发器"
             }
+          },
+          {
+            "id": "b02560811197aa9a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "MySQL/MySQL笔记/Statement/未命名.md",
+                "mode": "preview",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "未命名"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -168,10 +183,12 @@
       "bases:新建数据库": false
     }
   },
-  "active": "d1409fccf1b78d9d",
+  "active": "b02560811197aa9a",
   "lastOpenFiles": [
-    "Personal/Git.md",
+    "MySQL进阶：锁机制与并发控制.md",
+    "MySQL/MySQL笔记/Statement/未命名.md",
     "MySQL/MySQL笔记/进阶/MySQL视图、存储过程与触发器.md",
+    "Personal/Git.md",
     "ErrorLog/广财抢课脚本.md",
     "未识别出时间戳.md"
   ]

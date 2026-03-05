@@ -260,7 +260,15 @@ BEGIN
     INSERT INTO user_logs(user_id, action, create_time) 
     VALUES (NEW.id, 'INSERT', NOW());
 END;
+
+-- 查看触发器（所有触发器）
+SHOW TRIGGER;
+
+-- 删除触发器
+DROP TRIGGER [触发器的名字];
 ```
+
+> `FOR EACH ROW` -- 代表这个触发器是行级触发器，操作一行数据会触发一次；
 
 ---
 
