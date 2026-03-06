@@ -1,5 +1,5 @@
 ---
-title: MySQL进阶：锁机制与并发控制
+title: MySQL锁机制与并发控制
 tags:
 - MySQL
 - 锁
@@ -141,6 +141,7 @@ UNLOCK TABLES;
 
 - **范围查询（唯一索引）**：
 	- 不仅仅会匹配到的数据行上锁，还会给**下一条数据前**的位置（间隙）加上**间隙锁**
+> 当上界为`Infimum pseudo-record`，表示为`->0+`
 > 当下界为`supremum pseudo-record`时，表示为`+∞`
 
 > 关于查询锁情况时，为什么间隙锁会显示右边节点的`id`，而不是左边的`id` -> [[Lock_date显示右边锁id的问题]]

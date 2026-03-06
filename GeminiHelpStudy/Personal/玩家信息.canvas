@@ -15,18 +15,20 @@
 		{"id":"8aad3bbf316b844e","type":"text","text":"### Java开发","x":340,"y":-200,"width":149,"height":60,"color":"3"},
 		{"id":"2f2803809668f3ab","type":"text","text":"## 时间","x":-60,"y":31,"width":100,"height":60,"color":"1"},
 		{"id":"4c39e75b6c6fe1f4","type":"text","text":"- 大二寒假还有1个星期开学","x":-140,"y":171,"width":260,"height":60},
-		{"id":"234bf3e13da7b52d","type":"text","text":"### 已学习：\n- 基本条件语句、循环\n- 面向对象\n- 语言特性：继承、实现\n- 知道部分JavaAPI\n- 基本IO\n- 基础多线程\n- 基础反射、动态代理\n\n### 未来学习：\n- [ ] 熟悉JavaAPI开发\n- [ ] 深入学习IO\n- [ ] 进一步学习多线程-JUC\n- [ ] 熟悉反射、动态代理-Spring底层\n- [ ] 学习JVM机制","x":500,"y":0,"width":340,"height":480},
 		{"id":"22a692cc71d51f48","type":"text","text":"### 数据结构与算法","x":840,"y":-790,"width":200,"height":60,"color":"2"},
 		{"id":"5458680565ac3888","type":"text","text":"### 四大基础","x":500,"y":-760,"width":140,"height":60,"color":"2"},
 		{"id":"168c2343bc5fd722","type":"text","text":"### 操作系统","x":870,"y":-380,"width":140,"height":60,"color":"2"},
 		{"id":"b8970a535e6e8a9a","type":"text","text":"- （待学习）","x":1240,"y":-380,"width":250,"height":60},
-		{"id":"5897362521d38db0","type":"text","text":"### Java SE","x":600,"y":-200,"width":140,"height":60},
-		{"id":"18a057abf0862a27","type":"text","text":"### 已学习：\n- HTML、CSS、JavaScript的学习\n- `SpringBoot` 架手架\n- MySQL的基本CRUD\n- 三层设计（Controller、Service、Mapper）\n- Spring AOP\n- Spring 自动配置原理\n- Maven以及部分高级知识\n- Vue3项目架手架\n- 基础的Linux部署\n- 基础的Docker容器化部署\n\n\n### 已实践内容\n- 边学边自己完成`task-system`项目（没照抄课程项目）\n- 使用物理机，并装配Ubuntu来部署项目\n- 注册DigitalPlatFreeDomain的免费域名\n- 将域名放入Cloudflare，并使用其隧道映射到公网\n\n> [!warning] 前端短板\n> 目前只能进行前端JavaScript位置的根据后端调整做小改动\n> 无法单独完成整一个页面开发\n","x":880,"y":0,"width":400,"height":760},
-		{"id":"9fe0e34c26f490c8","type":"text","text":"### JavaWeb","x":1001,"y":-200,"width":159,"height":60},
-		{"id":"51cdf0161526e25c","type":"text","text":"### 已学习：\n- 原`Swagger`->`OpenAPI`\n- 基本Redis的CRUD\n- Spring Data Redis\n- Http Client\n- Spring Cache\n- Spring Task\n- WebSocket\n- Apache ECharts\n- Apache POI\n\n### 已实践内容\n- 跟做完整的《苍穹外卖》项目，并进行略微SQL查询优化\n- 进行了一次期末考试->[[《苍穹外卖》考核]]\n\n### 待完成\n- Vue复习\n- TypeScript\n- 前端开发\n","x":1340,"y":0,"width":440,"height":640},
-		{"id":"9414fbce1e6f1437","type":"text","text":"### 苍穹外卖","x":1480,"y":-200,"width":160,"height":60},
-		{"id":"16f304a4a5f97451","type":"text","text":"### 已学习：\n- 看过MySQL系统框架、执行原理、页&行&索引结构\n- 理解索引原理、事务、锁\n\n### 进行中：\n- 通过黑马MySQL课程进行进阶篇的实践（进行中）\n\n\n### 计划中：\n- 阅读《MySQL是怎样运行的》\n","x":1840,"y":0,"width":440,"height":620},
-		{"id":"438fac45cca7b0d9","type":"text","text":"### 深入MySQL & 进阶","x":1935,"y":-200,"width":250,"height":60}
+		{"id":"234bf3e13da7b52d","type":"text","text":"### 已学习：\n- 基本条件语句、循环\n- 面向对象\n- 语言特性：继承、实现\n- 知道部分JavaAPI\n- 基本IO\n- 基础多线程\n- 基础反射、动态代理\n\n### 未来学习：\n- [ ] 熟悉JavaAPI开发\n- [ ] 深入学习IO\n- [ ] 进一步学习多线程-JUC\n- [ ] 熟悉反射、动态代理-Spring底层\n- [ ] 学习JVM机制","x":840,"y":0,"width":340,"height":480},
+		{"id":"5897362521d38db0","type":"text","text":"### Java SE","x":940,"y":-200,"width":140,"height":60},
+		{"id":"18a057abf0862a27","type":"text","text":"### 已学习：\n- HTML、CSS、JavaScript的学习\n- `SpringBoot` 架手架\n- MySQL的基本CRUD\n- 三层设计（Controller、Service、Mapper）\n- Spring AOP\n- Spring 自动配置原理\n- Maven以及部分高级知识\n- Vue3项目架手架\n- 基础的Linux部署\n- 基础的Docker容器化部署\n\n\n### 已实践内容\n- 边学边自己完成`task-system`项目（没照抄课程项目）\n- 使用物理机，并装配Ubuntu来部署项目\n- 注册DigitalPlatFreeDomain的免费域名\n- 将域名放入Cloudflare，并使用其隧道映射到公网\n\n> [!warning] 前端短板\n> 目前只能进行前端JavaScript位置的根据后端调整做小改动\n> 无法单独完成整一个页面开发\n","x":1220,"y":0,"width":400,"height":760},
+		{"id":"9fe0e34c26f490c8","type":"text","text":"### JavaWeb","x":1341,"y":-200,"width":159,"height":60},
+		{"id":"51cdf0161526e25c","type":"text","text":"### 已学习：\n- 原`Swagger`->`OpenAPI`\n- 基本Redis的CRUD\n- Spring Data Redis\n- Http Client\n- Spring Cache\n- Spring Task\n- WebSocket\n- Apache ECharts\n- Apache POI\n\n### 已实践内容\n- 跟做完整的《苍穹外卖》项目，并进行略微SQL查询优化\n- 进行了一次期末考试->[[《苍穹外卖》考核]]\n\n### 待完成\n- Vue复习\n- TypeScript\n- 前端开发\n","x":1680,"y":0,"width":440,"height":640},
+		{"id":"9414fbce1e6f1437","type":"text","text":"### 苍穹外卖","x":1820,"y":-200,"width":160,"height":60},
+		{"id":"d2b63e9f053146db","type":"text","text":"### 大一","x":640,"y":-200,"width":149,"height":60,"color":"3"},
+		{"id":"16f304a4a5f97451","type":"text","text":"### 已学习：\n- 看过MySQL系统框架、执行原理、页&行&索引结构\n- 深入理解索引原理、MVCC事务、锁\n- 观看并学习黑马MySQL进阶篇，对特定内容进行过用MySQL底层来进行理解，如：索引、MVCC事务、锁等\n- \n\n### 进行中：\n- 利用Gemini生成场景来考验MySQL进阶篇学习成果\n- 阅读《MySQL是怎样运行的》\n\n\n### 计划中：\n- 无","x":790,"y":1080,"width":440,"height":620},
+		{"id":"438fac45cca7b0d9","type":"text","text":"### 深入MySQL & 进阶","x":885,"y":880,"width":250,"height":60},
+		{"id":"d44b5e8bb6450065","type":"text","text":"### 大二","x":640,"y":880,"width":149,"height":60,"color":"3"}
 	],
 	"edges":[
 		{"id":"fcd7754d54bc71e3","fromNode":"c929c52dc3ea5943","fromSide":"top","toNode":"5458680565ac3888","toSide":"left","label":"内功"},
@@ -39,7 +41,6 @@
 		{"id":"4d23fe2721fcc9ec","fromNode":"5458680565ac3888","fromSide":"right","toNode":"168c2343bc5fd722","toSide":"left"},
 		{"id":"6c8bc8d3b4caa3a0","fromNode":"168c2343bc5fd722","fromSide":"right","toNode":"b8970a535e6e8a9a","toSide":"left"},
 		{"id":"43688eb562eac2b5","fromNode":"c929c52dc3ea5943","fromSide":"right","toNode":"8aad3bbf316b844e","toSide":"left","label":"神通"},
-		{"id":"27f8fd244fe4a054","fromNode":"8aad3bbf316b844e","fromSide":"right","toNode":"5897362521d38db0","toSide":"left"},
 		{"id":"c68cc7b4a9d2eaf4","fromNode":"5897362521d38db0","fromSide":"bottom","toNode":"234bf3e13da7b52d","toSide":"top"},
 		{"id":"160fae04b6a53098","fromNode":"5897362521d38db0","fromSide":"right","toNode":"9fe0e34c26f490c8","toSide":"left"},
 		{"id":"e31e206e48a90d36","fromNode":"9fe0e34c26f490c8","fromSide":"bottom","toNode":"18a057abf0862a27","toSide":"top"},
@@ -52,7 +53,10 @@
 		{"id":"a60d45a075a12d21","fromNode":"bce522c90daffc15","fromSide":"left","toNode":"a2936796018d9c76","toSide":"right"},
 		{"id":"f6295d522976ad28","fromNode":"c929c52dc3ea5943","fromSide":"bottom","toNode":"2f2803809668f3ab","toSide":"top"},
 		{"id":"01d162a3bcafe98f","fromNode":"2f2803809668f3ab","fromSide":"bottom","toNode":"4c39e75b6c6fe1f4","toSide":"top"},
-		{"id":"20bc90eb11e463b5","fromNode":"9414fbce1e6f1437","fromSide":"right","toNode":"438fac45cca7b0d9","toSide":"left"},
-		{"id":"7b416289e9dbd067","fromNode":"438fac45cca7b0d9","fromSide":"bottom","toNode":"16f304a4a5f97451","toSide":"top"}
+		{"id":"7b416289e9dbd067","fromNode":"438fac45cca7b0d9","fromSide":"bottom","toNode":"16f304a4a5f97451","toSide":"top"},
+		{"id":"8fa75686721e68c2","fromNode":"8aad3bbf316b844e","fromSide":"right","toNode":"d2b63e9f053146db","toSide":"left"},
+		{"id":"de2036696db713fe","fromNode":"d2b63e9f053146db","fromSide":"right","toNode":"5897362521d38db0","toSide":"left"},
+		{"id":"738c0d12da12e793","fromNode":"8aad3bbf316b844e","fromSide":"bottom","toNode":"d44b5e8bb6450065","toSide":"left"},
+		{"id":"cba0fc0e4ecca5fc","fromNode":"d44b5e8bb6450065","fromSide":"right","toNode":"438fac45cca7b0d9","toSide":"left"}
 	]
 }
