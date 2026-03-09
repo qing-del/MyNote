@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Exam/《MySQL进阶》/Level_2/Level_2_Assessment.md",
+                "file": "MySQL/MySQL原理/MySQL执行计划.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Level_2_Assessment"
+              "title": "MySQL执行计划"
             }
           }
         ]
@@ -186,8 +186,9 @@
   },
   "active": "20d8b866e2b5a356",
   "lastOpenFiles": [
-    "Exam/《MySQL进阶》/考试提示词构建/最终提示词.md",
     "Exam/《MySQL进阶》/Level_2/Level_2_Assessment.md",
+    "MySQL/MySQL原理/MySQL执行计划.md",
+    "Exam/《MySQL进阶》/考试提示词构建/最终提示词.md",
     "Exam/《MySQL进阶》/Level_2",
     "Exam/《MySQL进阶》/Level_1/Level_1_Grading_v0.2.md",
     "Exam/《MySQL进阶》/Level_1/Level_1_MyAnswer - v0.2.md",
@@ -229,7 +230,6 @@
     "MySQL/MySQL笔记/进阶/MySQL视图、存储过程与触发器.md",
     "MySQL/MySQL笔记/进阶/MySQL索引2.md",
     "MySQL/MySQL笔记/进阶/MySQL锁机制与并发控制.md",
-    "MySQL/MySQL笔记/进阶/MySQL索引.md",
     "Personal/玩家信息.canvas",
     "Exam/《MySQL进阶》",
     "ErrorLog",
