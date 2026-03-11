@@ -112,7 +112,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Personal/Git.md",
+            "file": "MySQL/MySQL原理/MySQL执行计划.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -170,6 +170,7 @@
   },
   "active": "d1409fccf1b78d9d",
   "lastOpenFiles": [
+    "MySQL/MySQL原理/img/MySQL索引表的属性.jpg",
     "Exam/《MySQL进阶》/Level_1/Level_1_MyAnswer - v0.2.md",
     "MySQL/MySQL原理/MySQL执行计划.md",
     "Exam/《MySQL进阶》/Level_2/Level_2_Assessment.md",
