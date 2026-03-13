@@ -13,40 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Exam/《MySQL进阶》/Level_3/Level_3_Assessment.md",
+                "file": "Exam/《MySQL进阶》/Level_4/Level_4_Assessment.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Level_3_Assessment"
-            }
-          },
-          {
-            "id": "2a53426daad63731",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "MySQL/MySQL原理/MySQL执行计划.md",
-                "mode": "preview",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "MySQL执行计划"
-            }
-          },
-          {
-            "id": "8f925caaccbbee7c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "MySQL/MySQL原理/MySQL索引原理.md",
-                "mode": "preview",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "MySQL索引原理"
+              "title": "Level_4_Assessment"
             }
           }
         ]
@@ -214,18 +186,27 @@
   },
   "active": "e41d4b98b77dcbb1",
   "lastOpenFiles": [
-    "Exam/《MySQL进阶》/考试提示词构建/最终提示词.md",
+    "Personal/玩家信息.canvas",
+    "Exam/《MySQL进阶》/Level_2/Level_2_Grading.md",
+    "Exam/《MySQL进阶》/Level_4/Level_4_Assessment.md",
+    "MySQL/复盘笔记/数据库高阶复盘：Level 3 核心战役 (MVCC与锁并发).md",
+    "MySQL/复盘笔记/Level 2 四表联查与深分页实战.md",
+    "Exam/《MySQL进阶》/Level_3/Level_3_Grading.md",
+    "MySQL/复盘笔记",
     "Exam/《MySQL进阶》/Level_3/Level_3_Assessment.md",
+    "Exam/《MySQL进阶》/Level_3/Level_3_MyAnswer.md",
+    "Exam/《MySQL进阶》/考试提示词构建/最终提示词.md",
+    "Exam/《MySQL进阶》/Level_4",
+    "MySQL/MySQL笔记/进阶/MySQL锁机制与并发控制.md",
+    "MySQL/MySQL原理/MySQL锁与事务.md",
+    "MySQL/MySQL原理/MySQL执行计划.md",
+    "MySQL/MySQL原理/MySQL索引原理.md",
     "Exam/《MySQL进阶》/Level_3",
     "Exam/《MySQL进阶》/新建文件夹",
     "Exam/《MySQL进阶》/Level_2/Level_2_MyAnswer.md",
-    "Exam/《MySQL进阶》/Level_2/Level_2_Grading.md",
     "Exam/《MySQL进阶》/Level_2/Level_2_Assessment.md",
     "Project/苍穹外卖/Design/数据库设计文档.md",
-    "MySQL/MySQL原理/MySQL索引原理.md",
-    "MySQL/MySQL原理/MySQL执行计划.md",
     "MySQL/MySQL原理/MySQL基于规则的优化.md",
-    "MySQL/MySQL原理/MySQL锁与事务.md",
     "MySQL/MySQL原理/statement/InnoDB统计数据收集机制.md",
     "MySQL/MySQL原理/statement/MySQL成本常数.md",
     "MySQL/MySQL原理/statement",
@@ -241,15 +222,8 @@
     "Orther/Prompt",
     "Internet/v2rayN链式配置.md",
     "Internet/搭建节点.md",
-    "Internet/WebSocket.md",
-    "EnglishLearn/100DayListenPractice/Day 2.md",
     "未命名 1.base",
     "EnglishLearn/100DayListenPractice",
-    "Exam/《MySQL进阶》/Level_1/Level_1_MyAnswer.md",
-    "MySQL/MySQL笔记/进阶/MySQL-InnoDB引擎底层原理与MVCC.md",
-    "MySQL/MySQL原理/Details/MySQL存储结构.md",
-    "MySQL/MySQL原理/Details/MySQL执行原理详细.md",
-    "MySQL/MySQL原理/Details/MySQL中页、行、索引.md",
     "MySQL/MySQL原理/img/MySQL执行原理3.png",
     "MySQL/MySQL原理/img/MySQL执行原理2.png",
     "MySQL/MySQL原理/img/MySQL执行原理1.png",
@@ -259,9 +233,6 @@
     "MySQL/MySQL原理/img/MySQL行结构1.png",
     "MySQL/MySQL原理/img/MySQL-Undo_Log学习3.png",
     "MySQL/MySQL原理/Details/MySQL大体框架.canvas",
-    "Exam/《MySQL进阶》/Level_1",
-    "Exam/《MySQL进阶》/考试提示词构建",
-    "Personal/玩家信息.canvas",
     "MySQL/MySQL-表-知识点导图.canvas",
     "Orther/LoveLogic.canvas",
     "Project/task-system-note/two/Second_Stage_Architecture.canvas",
