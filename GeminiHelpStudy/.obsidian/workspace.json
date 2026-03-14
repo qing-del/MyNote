@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 259.5,
-    "collapsed": true
+    "width": 259.5
   },
   "right": {
     "id": "8e7d3cf0411bcd58",
@@ -184,16 +183,20 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "e41d4b98b77dcbb1",
+  "active": "e06c0ebe92d88300",
   "lastOpenFiles": [
+    "Exam/《MySQL进阶》/Level_4/Level_4_MyAnswer.md",
+    "MySQL/MySQL原理/Details/MySQL存储结构.md",
+    "MySQL/MySQL原理/Details/MySQL大体框架.canvas",
+    "Exam/《MySQL进阶》/Level_4/Level_4_Assessment.md",
+    "Exam/《MySQL进阶》/Level_2/Level_2_Assessment.md",
+    "Exam/《MySQL进阶》/Level_3/Level_3_Assessment.md",
     "Personal/玩家信息.canvas",
     "Exam/《MySQL进阶》/Level_2/Level_2_Grading.md",
-    "Exam/《MySQL进阶》/Level_4/Level_4_Assessment.md",
     "MySQL/复盘笔记/数据库高阶复盘：Level 3 核心战役 (MVCC与锁并发).md",
     "MySQL/复盘笔记/Level 2 四表联查与深分页实战.md",
     "Exam/《MySQL进阶》/Level_3/Level_3_Grading.md",
     "MySQL/复盘笔记",
-    "Exam/《MySQL进阶》/Level_3/Level_3_Assessment.md",
     "Exam/《MySQL进阶》/Level_3/Level_3_MyAnswer.md",
     "Exam/《MySQL进阶》/考试提示词构建/最终提示词.md",
     "Exam/《MySQL进阶》/Level_4",
@@ -204,7 +207,6 @@
     "Exam/《MySQL进阶》/Level_3",
     "Exam/《MySQL进阶》/新建文件夹",
     "Exam/《MySQL进阶》/Level_2/Level_2_MyAnswer.md",
-    "Exam/《MySQL进阶》/Level_2/Level_2_Assessment.md",
     "Project/苍穹外卖/Design/数据库设计文档.md",
     "MySQL/MySQL原理/MySQL基于规则的优化.md",
     "MySQL/MySQL原理/statement/InnoDB统计数据收集机制.md",
@@ -221,7 +223,6 @@
     "Orther/Prompt/生成笔记框架提示词.md",
     "Orther/Prompt",
     "Internet/v2rayN链式配置.md",
-    "Internet/搭建节点.md",
     "未命名 1.base",
     "EnglishLearn/100DayListenPractice",
     "MySQL/MySQL原理/img/MySQL执行原理3.png",
@@ -232,7 +233,6 @@
     "MySQL/MySQL原理/img/MySQL索引原理3.png",
     "MySQL/MySQL原理/img/MySQL行结构1.png",
     "MySQL/MySQL原理/img/MySQL-Undo_Log学习3.png",
-    "MySQL/MySQL原理/Details/MySQL大体框架.canvas",
     "MySQL/MySQL-表-知识点导图.canvas",
     "Orther/LoveLogic.canvas",
     "Project/task-system-note/two/Second_Stage_Architecture.canvas",
