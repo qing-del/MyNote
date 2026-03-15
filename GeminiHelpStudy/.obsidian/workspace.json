@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Exam/《MySQL进阶》/Level_4/Level_4_Assessment.md",
+                "file": "Exam/《JUC并发编程》/Learning/Level_1_Assessment.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Level_4_Assessment"
+              "title": "Level_1_Assessment"
             }
           }
         ]
@@ -185,20 +185,28 @@
   },
   "active": "e06c0ebe92d88300",
   "lastOpenFiles": [
+    "Exam/《JUC并发编程》/Learning/Learning_Prompt.md",
+    "Exam/《JUC并发编程》/Learning/Level_1_Assessment.md",
+    "Exam/《JUC并发编程》/Learning",
+    "Exam/《JUC并发编程》/未命名.md",
+    "Personal/玩家信息.canvas",
+    "Exam/《JUC并发编程》",
+    "Exam/《MySQL进阶》/考试提示词构建/最终提示词.md",
+    "Exam/《MySQL进阶》/Level_4/Level_4_Grading.md",
+    "Exam/《MySQL进阶》/Level_4/Level_4_MyAnswer_Part1.md",
+    "Exam/《MySQL进阶》/Level_4/Level_4_Assessment.md",
+    "Exam/《MySQL进阶》/Level_4/Level_4_MyAnswer_Part2.md",
     "Exam/《MySQL进阶》/Level_4/Level_4_MyAnswer.md",
     "MySQL/MySQL原理/Details/MySQL存储结构.md",
     "MySQL/MySQL原理/Details/MySQL大体框架.canvas",
-    "Exam/《MySQL进阶》/Level_4/Level_4_Assessment.md",
     "Exam/《MySQL进阶》/Level_2/Level_2_Assessment.md",
     "Exam/《MySQL进阶》/Level_3/Level_3_Assessment.md",
-    "Personal/玩家信息.canvas",
     "Exam/《MySQL进阶》/Level_2/Level_2_Grading.md",
     "MySQL/复盘笔记/数据库高阶复盘：Level 3 核心战役 (MVCC与锁并发).md",
     "MySQL/复盘笔记/Level 2 四表联查与深分页实战.md",
     "Exam/《MySQL进阶》/Level_3/Level_3_Grading.md",
     "MySQL/复盘笔记",
     "Exam/《MySQL进阶》/Level_3/Level_3_MyAnswer.md",
-    "Exam/《MySQL进阶》/考试提示词构建/最终提示词.md",
     "Exam/《MySQL进阶》/Level_4",
     "MySQL/MySQL笔记/进阶/MySQL锁机制与并发控制.md",
     "MySQL/MySQL原理/MySQL锁与事务.md",
@@ -216,15 +224,7 @@
     "MySQL/MySQL原理/img/MySQL索引表的属性.jpg",
     "未命名.base",
     "Exam/《MySQL进阶》/Level_2",
-    "Exam/《MySQL进阶》/Level_1/Level_1_Grading_v0.2.md",
-    "Exam/《MySQL进阶》/Level_1/Level_1_MyAnswer - v0.2.md",
-    "Exam/《MySQL进阶》/Level_1/Level_1_Assessment.md",
-    "Exam/《MySQL进阶》/Level_1/Level_1_Grading.md",
-    "Orther/Prompt/生成笔记框架提示词.md",
     "Orther/Prompt",
-    "Internet/v2rayN链式配置.md",
-    "未命名 1.base",
-    "EnglishLearn/100DayListenPractice",
     "MySQL/MySQL原理/img/MySQL执行原理3.png",
     "MySQL/MySQL原理/img/MySQL执行原理2.png",
     "MySQL/MySQL原理/img/MySQL执行原理1.png",

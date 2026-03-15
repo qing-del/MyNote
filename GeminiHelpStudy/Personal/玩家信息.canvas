@@ -9,8 +9,8 @@
 		{"id":"c929c52dc3ea5943","type":"text","text":"## 玩家信息","x":-80,"y":-200,"width":140,"height":60,"color":"5"},
 		{"id":"8aad3bbf316b844e","type":"text","text":"### Java开发","x":340,"y":-200,"width":149,"height":60,"color":"3"},
 		{"id":"2f2803809668f3ab","type":"text","text":"## 时间","x":-60,"y":31,"width":100,"height":60,"color":"1"},
-		{"id":"4c39e75b6c6fe1f4","type":"text","text":"- 大二下开学第二个星期的周五","x":-140,"y":171,"width":260,"height":60},
-		{"id":"0252b2250981e576","type":"text","text":"- 略懂`Linux`中的防火墙设计\n- 关于`TCP`和`UDP`：\n\t- 仅知道`TCP`是比较怕丢包，而且需要握手成功才可以使用（三次握手）\n\t- `UDP`就是不管你收不收的到都会直接丢过去\n- 知道内网、公网的区别，仅知道内网可以通过隧道可以抵达公网并可以被其他公网设备访问\n- 知道不同公网下的内网设备，可以通过组网来实现相互访问（例如：Tailscale，或者是类似于接个带有公网ip的中转服务器）\n- 大概了解在一次请求中`DNS`起到了什么作用\n- 知道设备、转发器、路由器大致有什么作用，以及是一次请求/访问结合`DNS`这三个东西大概会是怎样的流程","x":1240,"y":-1580,"width":960,"height":240},
+		{"id":"4c39e75b6c6fe1f4","type":"text","text":"- 大二下开学第三周的周一","x":-140,"y":171,"width":260,"height":60},
+		{"id":"0252b2250981e576","type":"text","text":"### v0.1\n- 略懂`Linux`中的防火墙设计\n- 关于`TCP`和`UDP`：\n\t- 仅知道`TCP`是比较怕丢包，而且需要握手成功才可以使用（三次握手）\n\t- `UDP`就是不管你收不收的到都会直接丢过去\n- 知道内网、公网的区别，仅知道内网可以通过隧道可以抵达公网并可以被其他公网设备访问\n- 知道不同公网下的内网设备，可以通过组网来实现相互访问（例如：Tailscale，或者是类似于接个带有公网ip的中转服务器）\n- 大概了解在一次请求中`DNS`起到了什么作用\n- 知道设备、转发器、路由器大致有什么作用，以及是一次请求/访问结合`DNS`这三个东西大概会是怎样的流程\n\n### v0.11\n- 学习了`TCP`反压链路：发送缓冲区→滑动窗口→ACK机制（基础理解，细节仍有偏差）","x":1240,"y":-1580,"width":960,"height":280},
 		{"id":"43bdf729b839bd2e","type":"text","text":"### 计算机网络","x":820,"y":-1400,"width":160,"height":60,"color":"2"},
 		{"id":"608110c8df0c7e26","type":"text","text":"- 仅是跟学校上课学了一部分知识\n\t- 知道**局部性**\n\t- 知道有**高级语言**->**汇编代码**->**机器语言**这一条链路","x":1240,"y":-1200,"width":560,"height":120},
 		{"id":"2ac13036abe9eeae","type":"text","text":"### 计算机组成原理","x":840,"y":-1140,"width":200,"height":60,"color":"2"},
@@ -26,9 +26,10 @@
 		{"id":"9fe0e34c26f490c8","type":"text","text":"### JavaWeb","x":1341,"y":-200,"width":159,"height":60},
 		{"id":"51cdf0161526e25c","type":"text","text":"### 已学习：\n- 原`Swagger`->`OpenAPI`\n- 基本Redis的CRUD\n- Spring Data Redis\n- Http Client\n- Spring Cache\n- Spring Task\n- WebSocket\n- Apache ECharts\n- Apache POI\n\n### 已实践内容\n- 跟做完整的《苍穹外卖》项目，并进行略微SQL查询优化\n- 进行了一次期末考试->[[《苍穹外卖》考核]]\n\n### 待完成\n- Vue复习\n- TypeScript\n- 前端开发\n","x":1680,"y":0,"width":440,"height":640},
 		{"id":"9414fbce1e6f1437","type":"text","text":"### 苍穹外卖","x":1820,"y":-200,"width":160,"height":60},
-		{"id":"16f304a4a5f97451","type":"text","text":"### 已学习：\n- 看过MySQL系统框架、执行原理、页&行&索引结构\n- 深入理解索引原理、MVCC事务、锁\n- 观看并学习黑马MySQL进阶篇，对特定内容进行过用MySQL底层来进行理解，如：索引、MVCC事务、锁等\n- 阅读《MySQL是怎样运行的》\n\n### 进行中：\n- 利用Gemini生成场景来考验MySQL进阶篇学习成果\n\n\n### 计划中：\n- 无","x":790,"y":1080,"width":440,"height":620},
 		{"id":"438fac45cca7b0d9","type":"text","text":"### 深入MySQL & 进阶","x":885,"y":880,"width":250,"height":60},
-		{"id":"d44b5e8bb6450065","type":"text","text":"### 大二","x":640,"y":880,"width":149,"height":60,"color":"3"}
+		{"id":"d44b5e8bb6450065","type":"text","text":"### 大二","x":640,"y":880,"width":149,"height":60,"color":"3"},
+		{"id":"16f304a4a5f97451","type":"text","text":"### 已学习：\n- 看过MySQL系统框架、执行原理、页&行&索引结构\n- 深入理解索引原理、MVCC事务、锁\n- 观看并学习黑马MySQL进阶篇，对特定内容进行过用MySQL底层来进行理解，如：索引、MVCC事务、锁等\n- 阅读《MySQL是怎样运行的》\n\n### 已完成考核（四级）：\n利用Gemini生成线上故障场景来考验MySQL进阶篇学习成果：\n\n| Level | 考察方向 | 得分 |\n|:---:|:---|:---:|\n| L1(v0.2) | InnoDB底层原理 | 82.5/100 (B+) |\n| L2 | SQL性能调优 | 65/100 (C+) |\n| L3 | 并发与锁 | 78/100 (B) |\n| L4 | 数据建模与并发防范 | 70/100 (B-) |\n| **加权** | | **73.9/100** |\n\n#### 各级实战表现：\n**L1 InnoDB底层（82.5）**\n- 能用CPP排序比较器解释B+树叶子节点物理排列\n- 可推演深度分页回表成本差异（索引覆盖优化近满分）\n- MVCC ReadView四字段与版本链回溯逻辑扎实\n- v0.1→v0.2主动复盘提升19.5分\n- 为答网络层反压题，主动提前学习计组网络知识\n\n**L2 SQL性能调优（65）**\n- 面对四表联查慢SQL有畏难情绪，自行设计三阶段渐进训练后再作答\n- 能用成本模型（IO系数1.0/CPU系数0.2）量化索引选择\n- 正确识别DATE()函数导致索引失效\n- 提出冗余字段减少JOIN的架构思维\n- 短板：EXPLAIN中rows含义混淆、延迟关联未真正\"瘦身\"、未识别废索引陷阱\n\n**L3 并发与锁（78）**\n- Gap Lock区间判断几乎满分（画链表示意图精准）\n- 唯一真正打开MySQL终端验证data_locks的学生\n- 能识别死锁变体场景（改id=6会死锁）\n- 短板：二级索引Next-Key Lock精确加锁边界、UPDATE当前读打断快照\n\n**L4 数据建模（70）**\n- 自然结合Java Spring层设计方案（非纯SQL思维）\n- 参考猫眼真实业务流设计索引（查影院→选电影→按时间排→出影厅）\n- 选用FOR UPDATE NOWAIT快速失败策略（工业级做法）\n- 提出冷热数据分离解决深分页\n- 短板：多座位加锁顺序未保证、事务边界过大、超时释放有时间窗口\n\n#### 待加强：\n- SQL优化器Cost-Based回表阈值判断\n- 延迟关联精确SQL落地（CTE内层只碰一张表）\n- 并发安全最后一公里（加锁顺序、防御性SQL、事务最小化）\n- 二级索引精确加锁机制（Next-Key与Gap切换边界）\n\n### 计划中：\n- 进入《MC单服电商小平台》项目开发","x":730,"y":1080,"width":560,"height":720},
+		{"id":"09737e28f2de8f5e","type":"text","text":"### JUC并发编程","x":1555,"y":880,"width":250,"height":60}
 	],
 	"edges":[
 		{"id":"fcd7754d54bc71e3","fromNode":"c929c52dc3ea5943","fromSide":"top","toNode":"5458680565ac3888","toSide":"left","label":"内功"},
@@ -57,6 +58,7 @@
 		{"id":"8fa75686721e68c2","fromNode":"8aad3bbf316b844e","fromSide":"right","toNode":"d2b63e9f053146db","toSide":"left"},
 		{"id":"de2036696db713fe","fromNode":"d2b63e9f053146db","fromSide":"right","toNode":"5897362521d38db0","toSide":"left"},
 		{"id":"738c0d12da12e793","fromNode":"8aad3bbf316b844e","fromSide":"bottom","toNode":"d44b5e8bb6450065","toSide":"left"},
-		{"id":"cba0fc0e4ecca5fc","fromNode":"d44b5e8bb6450065","fromSide":"right","toNode":"438fac45cca7b0d9","toSide":"left"}
+		{"id":"cba0fc0e4ecca5fc","fromNode":"d44b5e8bb6450065","fromSide":"right","toNode":"438fac45cca7b0d9","toSide":"left"},
+		{"id":"a40566c4ae86f133","fromNode":"438fac45cca7b0d9","fromSide":"right","toNode":"09737e28f2de8f5e","toSide":"left"}
 	]
 }
