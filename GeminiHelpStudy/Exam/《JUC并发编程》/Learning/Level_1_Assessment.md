@@ -1,276 +1,138 @@
-# Level 1：并发基石与内存模型 (JMM) — 引导式学习问题册
+# Level 1：并发基石与内存模型 (JMM) —— 引导式学习问题册
 
 > 新人你好，我是你的 JUC 导师。听闻你 MySQL 底层学得很扎实，但在真正的 Java 高并发业务里，内存和 CPU 可是会教你做人的。三个月后想拿大厂实习 Offer？那就接招吧。
->
-> 本 Level 聚焦：**线程状态流转**、**`volatile` 的内存语义**、**`synchronized` 的锁升级**、**Java 对象头结构**。
 
 ---
 
-## 【大题一】诡异的死循环 — `volatile` 与可见性
+## 📋 本 Level 考核范围
 
-### Part A · 基础理论：推导 Bug 根因
-
-下面这段代码在某台 4 核服务器上跑起来后，子线程**永远不会停下来**，`while` 循环变成了死循环。但在单核 CPU 的机器上却能正常退出。请分析：
-
-```java
-public class VisibilityBug {
-
-    private static boolean running = true;  // 注意：没有 volatile
-
-    public static void main(String[] args) throws InterruptedException {
-        Thread worker = new Thread(() -> {
-            int count = 0;
-            while (running) {
-                count++;
-            }
-            System.out.println("Worker 停止, count = " + count);
-        });
-        worker.start();
-
-        Thread.sleep(1000);
-        running = false;  // 主线程修改了 flag
-        System.out.println("main 已将 running 设为 false");
-    }
-}
-```
-
-**请回答以下问题：**
-
-1. 从 **JMM（Java Memory Model）** 的角度，解释为什么子线程看不到 `running = false`。请画出（或文字描述）**主内存 ↔ 工作内存** 的交互过程。
-2. 为什么在**单核 CPU** 上可能正常退出？（提示：想想 CPU 缓存一致性协议在单核 vs 多核场景下的区别）
-3. 如果在 `while` 循环体里加一行 `System.out.println(count)`，程序又能正常退出了，为什么？（提示：`println` 的底层实现里藏着什么同步机制？）
-4. 如果给 `running` 加上 `volatile`，JMM 层面会插入哪些**内存屏障（Memory Barrier）**？它们分别阻止了什么类型的指令重排？
+| 知识板块 | 核心考点 | 对应黑马章节 |
+|---|---|---|
+| 线程状态流转 | 五种/六种状态、状态转换触发条件 | 第三章 03.034 ~ 03.036 |
+| `volatile` 内存语义 | 可见性、指令重排禁止、happens-before | 第五章 05.002 ~ 05.019 |
+| `synchronized` 底层原理 | Monitor、锁升级（无锁→偏向→轻量→重量） | 第四章 04.026 ~ 04.038 |
+| Java 对象头 (Mark Word) | 对象头结构、锁标志位含义 | 第四章 04.026 |
+| wait/notify 机制 | 工作原理、正确使用姿势 | 第四章 04.039 ~ 04.047 |
 
 ---
 
-### Part B · 场景实战：秒杀系统的开关控制
+## 🔥 大题一：线程状态流转 × 线上诡异 Bug
 
-**业务背景**：你负责一个秒杀系统，需要实现一个"秒杀活动开关"：
+### Part A · 基础理论 —— "为什么线程卡死了？"
 
-- 运营后台通过 HTTP 接口设置 `saleActive = true/false`
-- 有 **200 个请求处理线程** 要实时读取这个开关
-- 一旦开关关闭，所有线程必须在 **最短时间内停止接单**
-
-**请给出你的方案，并回答：**
-
-1. 使用 `volatile boolean` 能满足需求吗？请说明理由。
-2. 如果开关的判断逻辑变为 `if (saleActive && stock > 0)` —— 涉及两个变量的**复合操作**，`volatile` 还够用吗？为什么？
-3. 对比：如果用 `synchronized` 来保护这个开关读写，性能上会有什么代价？请从 **锁对象的对象头 Mark Word** 的状态变化角度来分析。
-
----
-
-## 【大题二】锁升级的翻车现场 — `synchronized` 底层原理
-
-### Part A · 基础理论：推导对象头状态
-
-某同事写了一段"优化"代码，他声称：*"我只用了一个线程，`synchronized` 几乎没有开销，因为偏向锁嘛！"*
-
-```java
-public class BiasedLockDemo {
-
-    private static final Object lock = new Object();
-
-    public static void main(String[] args) throws InterruptedException {
-        // Thread.sleep(5000);  // 同事注释掉了这行
-
-        synchronized (lock) {
-            System.out.println("第一次加锁");
-            System.out.println(ClassLayout.parseInstance(lock).toPrintable());
-        }
-
-        synchronized (lock) {
-            System.out.println("第二次加锁");
-            System.out.println(ClassLayout.parseInstance(lock).toPrintable());
-        }
-    }
-}
-```
-
-**请回答以下问题：**
-
-1. 他注释掉了 `Thread.sleep(5000)`，结果 JOL（Java Object Layout）打印出来的锁标志位并不是偏向锁（`101`），而是轻量级锁（`00`）。为什么？
-   > 提示：JVM 有一个叫 **偏向锁延迟（BiasedLockingStartupDelay）** 的参数，默认 4 秒。
-2. 请完整画出一个对象从 **创建 → 偏向锁 → 轻量级锁 → 重量级锁** 的 Mark Word 位模式变化过程（64 位虚拟机）。每个阶段分别占用了 Mark Word 的哪些 bit？
-3. **类比 MySQL**：MySQL InnoDB 中的锁也有"升级"概念（行锁 → 间隙锁 → 表锁意向锁）。请对比 Java `synchronized` 锁升级和 MySQL 的锁膨胀机制，说说它们的**设计动机**有何相似与不同？
-4. `synchronized` 锁升级是**不可逆**的吗？在 JDK 15 之后发生了什么变化？
-
----
-
-### Part B · 场景实战：用户积分扣减
-
-**业务背景**：电商系统中，用户下单后需要扣减积分。代码如下：
-
-```java
-public class PointService {
-
-    private int points = 1000;
-
-    public void deduct(int amount) {
-        if (points >= amount) {
-            // 模拟一些业务逻辑
-            try { Thread.sleep(10); } catch (InterruptedException e) {}
-            points -= amount;
-            System.out.println(Thread.currentThread().getName() 
-                + " 扣减 " + amount + " 后剩余: " + points);
-        }
-    }
-}
-```
-
-在另一处代码中，开了 **10 个线程同时调用 `deduct(200)`**。
-
-**请回答：**
-
-1. 这段代码有哪些线程安全问题？请逐一列出。
-2. 请用 `synchronized` 给出一个**最小粒度**的修复方案（注意：不是无脑把整个方法加 `synchronized`）。
-3. 你选择锁 `this` 还是一个独立的 `private final Object lock`？说说各自的优缺点，从**锁对象逃逸**的角度分析。
-4. 主管说："扣减积分这个操作，QPS 峰值才 50，用 `synchronized` 足够了。但如果未来 QPS 暴增到 5000，你有什么升级方案？" —— 请给出思路（可以提前预告 Level 2 的 CAS / LongAdder 知识，但不需要写出完整代码）。
-
----
-
-## 【大题三】线程的生死轮回 — 状态流转与打断机制
-
-### Part A · 基础理论：诊断线上故障
-
-凌晨 3 点，监控告警：某服务的线程池线程数飙到上限，大量请求超时。你拉了一份 **Thread Dump**，发现有 300+ 线程处于 `WAITING` 状态，堆栈如下：
+你是大厂夜间值班 SRE。凌晨 3 点你被告警叫醒——生产环境某服务接口超时飙升，`jstack` 导出的线程快照中发现了以下关键信息：
 
 ```
-"pool-1-thread-233" #233 prio=5 os_prio=0 tid=0x00007f... nid=0x... waiting on condition [0x...]
+"order-process-thread-3" #42 daemon prio=5 os_prio=0 tid=0x00007f... nid=0x1a03 waiting on condition [0x00007f...]
    java.lang.Thread.State: WAITING (parking)
-        at jdk.internal.misc.Unsafe.park(Native Method)
-        - parking to wait for  <0x00000000d6a08e70> (a java.util.concurrent.locks.ReentrantLock$NonfairSync)
-        at java.util.concurrent.locks.LockSupport.park(LockSupport.java:194)
-        at java.util.concurrent.locks.AbstractQueuedSynchronizer.parkAndCheckInterrupt(...)
-        at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireQueued(...)
+        at sun.misc.Unsafe.park(Native Method)
+        - parking to wait for  <0x00000000d6f08e10> (a java.util.concurrent.locks.ReentrantLock$NonfairSync)
+        at java.util.concurrent.locks.LockSupport.park(LockSupport.java:175)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer.parkAndCheckInterrupt(AbstractQueuedSynchronizer.java:836)
+        ...
+
+"order-process-thread-1" #40 daemon prio=5 os_prio=0 tid=0x00007f... nid=0x19ff waiting for monitor entry [0x00007f...]
+   java.lang.Thread.State: BLOCKED (on object monitor)
+        at com.example.OrderService.processOrder(OrderService.java:87)
+        - waiting to lock <0x00000000d6e01f28> (a com.example.OrderService)
+        at ...
+
+"order-process-thread-0" #39 daemon prio=5 os_prio=0 tid=0x00007f... nid=0x19fe runnable [0x00007f...]
+   java.lang.Thread.State: RUNNABLE
+        at com.example.OrderService.calculateDiscount(OrderService.java:142)
+        at com.example.OrderService.processOrder(OrderService.java:95)
+        - locked <0x00000000d6e01f28> (a com.example.OrderService)
         ...
 ```
 
 **请回答以下问题：**
 
-1. 请画出 Java 线程的**完整六态流转图**（NEW → RUNNABLE → BLOCKED → WAITING → TIMED_WAITING → TERMINATED），标注每个状态转换触发的方法调用。
-2. Thread Dump 中线程状态显示 `WAITING (parking)` 而不是 `BLOCKED`。请解释 `WAITING` 和 `BLOCKED` 的本质区别，以及为什么 `ReentrantLock` 排队的线程状态是 `WAITING` 而非 `BLOCKED`。
-3. `LockSupport.park()` 和 `Object.wait()` 都能让线程挂起，但底层机制完全不同。请从**操作系统**层面对比这两者的实现。
-4. **类比 MySQL**：MySQL 中当一个事务在等行锁时，你在 `SHOW ENGINE INNODB STATUS` 里看到的是什么状态？和 Java 的 `WAITING` 有何概念上的相似性？
+1. 上述三个线程各自处于 Java 线程六种状态中的哪一种？它们各自在等什么？
+2. `WAITING (parking)` 和 `BLOCKED (on object monitor)` 的底层区别是什么？从 JVM 对象头、Monitor、AQS 三个角度分别说明。
+3. 如果这时候你在生产上对 thread-0 执行了 `thread.interrupt()`，三个线程各自会发生什么？请分开讨论持有 `synchronized` 内置锁和持有 `ReentrantLock` 两种场景。
 
----
+### Part B · 场景实战 —— "线程池里的线程泄漏"
 
-### Part B · 场景实战：优雅关闭后台任务
+**业务需求**：你负责一个订单服务，使用了一个固定大小为 8 的线程池处理订单。有人反馈"最近的订单处理越来越慢，好像线程池里的线程都'卡住'了"。
 
-**业务背景**：你的服务有一个后台数据同步线程，每隔 5 秒从上游拉一次数据：
+你用 `jstack` 发现其中 6 个线程都处于 `WAITING` 状态，堆栈指向 `Object.wait()`。经排查，发现业务代码中存在一段经典错误：
 
 ```java
-public class DataSyncer implements Runnable {
+public class OrderProcessor {
+    private final Object lock = new Object();
+    private volatile boolean dataReady = false;
 
-    private volatile boolean stopped = false;
-
-    @Override
-    public void run() {
-        while (!stopped) {
-            // 1. 拉取数据
-            fetchFromUpstream();
-            // 2. 休眠 5 秒
-            try {
-                Thread.sleep(5000);
-            } catch (InterruptedException e) {
-                // 同事写了个空 catch
+    public void waitForData() {
+        synchronized (lock) {
+            if (!dataReady) {         // ← 注意这里
+                lock.wait();           // 有异常处理省略
             }
+            // 处理数据...
         }
-        System.out.println("同步线程已退出");
     }
 
-    public void shutdown() {
-        stopped = true;
-    }
-}
-```
-
-现在收到需求：服务下线时，这个同步线程必须在 **3 秒内优雅退出**（不能等到 sleep 5 秒结束才退出）。
-
-**请回答：**
-
-1. 当前代码的 `shutdown()` 方法有什么问题？为什么最慢需要等 5 秒才能退出？
-2. 请使用 `Thread.interrupt()` 机制重写 `shutdown()` 和 `run()` 方法，实现"立即中断 sleep 并退出"。注意正确处理 `InterruptedException` 和中断标志位。
-3. 如果 `fetchFromUpstream()` 内部是一个**阻塞 I/O 操作**（如 Socket 读取），`interrupt()` 还能打断它吗？如果不能，你有什么替代方案？
-4. Spring Boot 项目中，`@PreDestroy` 注解的方法被调用时，你如何保证这个同步线程已经完全停止并释放了所有资源？请给出代码骨架。
-
----
-
-## 【大题四】`volatile` 的边界 — 它不是万能的
-
-### Part A · 基础理论：拆穿 volatile 的假象
-
-看下面这段"看似线程安全"的单例模式：
-
-```java
-public class Singleton {
-
-    private static Singleton INSTANCE;
-
-    private int value;
-
-    private Singleton() {
-        this.value = 42;
-    }
-
-    public static Singleton getInstance() {
-        if (INSTANCE == null) {                    // ① 第一次检查
-            synchronized (Singleton.class) {
-                if (INSTANCE == null) {            // ② 第二次检查
-                    INSTANCE = new Singleton();    // ③ 创建实例
-                }
-            }
+    public void notifyDataReady() {
+        synchronized (lock) {
+            dataReady = true;
+            lock.notify();             // ← 注意这里
         }
-        return INSTANCE;
-    }
-}
-```
-
-**请回答以下问题：**
-
-1. 这段 DCL（Double-Checked Locking）为什么是**有 Bug** 的？请从字节码层面（`new → dup → invokespecial → astore`）分析第 ③ 步可能发生的**指令重排序**，说明另一个线程在第 ① 步可能拿到什么样的对象。
-2. 加上 `volatile` 修饰 `INSTANCE` 之后，JMM 在第 ③ 步的赋值操作前后分别插入了什么内存屏障？这些屏障如何阻止了重排序？
-3. 有人说："JDK 9 之后用 `VarHandle` 可以更精细地控制内存顺序。" 请简单说明 `VarHandle` 的 `setRelease()` / `getAcquire()` 和 `volatile` 的语义差异。
-4. **灵魂拷问**：如果面试官问你"volatile 和 synchronized 的区别"，你会怎么回答？请从**原子性、可见性、有序性**三个维度给出一个30秒的精炼回答。
-
----
-
-### Part B · 场景实战：配置中心热更新
-
-**业务背景**：你需要实现一个本地配置缓存，每隔 30 秒从配置中心拉取最新配置，其他业务线程随时读取：
-
-```java
-public class ConfigCache {
-
-    private Map<String, String> configMap = new HashMap<>();
-
-    // 定时任务线程调用
-    public void refresh() {
-        Map<String, String> newConfig = fetchFromConfigCenter();
-        configMap = newConfig;  // 直接引用替换
-    }
-
-    // N 个业务线程调用
-    public String getConfig(String key) {
-        return configMap.get(key);
     }
 }
 ```
 
 **请回答：**
 
-1. 当前代码在多线程环境下有哪些问题？（提示：不仅仅是可见性问题）
-2. 有人建议把 `configMap` 改成 `volatile Map<String, String>`，这足够吗？为什么？
-3. 另一位同事建议用 `ConcurrentHashMap` 替换 `HashMap`，你同意吗？请从**读写模式**的角度分析这里用 `ConcurrentHashMap` 是不是"杀鸡用牛刀"。
-4. 请给出你认为**最优雅**的方案，并解释为什么。（提示：思考不可变对象 + 引用替换的模式）
+1. 指出这段代码中至少存在的 **两个致命并发 Bug**，并解释在什么时序下会触发。
+2. 给出你修复后的完整代码，并解释每一处修改的理由。
+3. 类比 MySQL：在 MySQL InnoDB 中，也有"等待-通知"机制吗？如果有，其底层原理与 Java 的 `wait/notify` 有什么可以类比的地方？
 
 ---
 
-## 答题须知
+> ⏳ **请回答以上【大题一】的全部内容后，我再出下一题。**
+>
+> 如果某个子问题你不确定，可以直接说"这部分我不太会，请给个提示方向"，我会告诉你应该去看黑马哪一节或者《Java并发编程的艺术》的哪个章节。
 
-- 每道大题独立作答，先完成 Part A 再完成 Part B
-- 回答时鼓励用**代码 + 文字**结合的方式
-- 如果涉及锁的状态变化，建议画**状态图**
-- 可以类比 MySQL 的 MVCC / 锁机制来辅助理解，导师会给予专业点评
-- 回答"我不会"没有关系，导师会给你提示，但你需要自己最终推导出答案
+---
 
-> 💡 **完成本 Level 后**，导师将对你的回答进行逐题 Code Review 式点评，并决定你是否具备进入 **Level 2：AQS & ReentrantLock** 的资格。
+### 【极客挑战】（选做，可留给未来）
+
+以下题目涉及更深层的源码和边缘 Case，你可以尝试作答，也可以直接说"留给未来"：
+
+**极客挑战 1 · 锁升级的"不归路"**
+
+> 在 JDK 15 及以后，偏向锁被彻底废弃了（JEP 374）。请问：
+> - 偏向锁从 JDK 6 引入到 JDK 15 废弃，中间经历了什么样的"信仰崩塌"？其废弃的根本原因是什么？
+> - 在偏向锁被废弃后，HotSpot 的锁升级路径变成了什么样？这对高并发场景是利是弊？
+
+**极客挑战 2 · C++ 源码级 —— Monitor 的真实面貌**
+
+> HotSpot 原生的 `ObjectMonitor` 结构体（C++ 层面）中，有 `_EntryList`、`_WaitSet`、`_cxq` 三个队列。
+> - 为什么需要同时存在 `_EntryList` 和 `_cxq` 两个入口队列？为什么不能合并成一个？
+> - 当一个线程从 `_WaitSet` 被唤醒后，它是被放到 `_EntryList` 还是 `_cxq`？不同的 JVM 策略（`Knob_MoveNotifyee`）会有什么不同行为？
+
+**极客挑战 3 · 手撕 happens-before**
+
+> 请给出以下代码的所有可能输出，用 JMM 的 happens-before 规则严格证明你的结论：
+> ```java
+> // 初始状态: x = 0, y = 0, a = 0, b = 0
+> // 线程 1:
+> a = 1;
+> x = b;
+>
+> // 线程 2:
+> b = 1;
+> y = a;
+> ```
+> **能否出现 `x == 0 && y == 0` 的结果？如果能，请画出指令重排后的执行时序图。**
+
+---
+
+> 📌 **提示**：本 Level 对应黑马课程 **第三章（线程基础）、第四章（共享模型之管程）、第五章（共享模型之 JMM）**。如果你在某个知识点上感到吃力，以下是精准的学习路径：
+>
+> | 薄弱点 | 推荐视频 | 推荐书籍 |
+> |---|---|---|
+> | 线程六种状态 | 03.034 ~ 03.036 | 《Java并发编程的艺术》第4章 §4.1 |
+> | synchronized 锁升级 | 04.029 ~ 04.038 | 《Java并发编程的艺术》第2章 §2.2 |
+> | wait/notify 原理 | 04.039 ~ 04.047 | 《Java并发编程的艺术》第4章 §4.3 |
+> | volatile 可见性与重排 | 05.002 ~ 05.018 | 《Java并发编程的艺术》第3章 §3.4 |
+> | happens-before | 05.019 | 《Java并发编程的艺术》第3章 §3.7 |

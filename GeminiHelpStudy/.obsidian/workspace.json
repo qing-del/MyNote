@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 259.5
+    "width": 259.5,
+    "collapsed": true
   },
   "right": {
     "id": "8e7d3cf0411bcd58",
@@ -183,7 +184,7 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "e06c0ebe92d88300",
+  "active": "e41d4b98b77dcbb1",
   "lastOpenFiles": [
     "Exam/《JUC并发编程》/Learning/Learning_Prompt.md",
     "Exam/《JUC并发编程》/Learning/Level_1_Assessment.md",
