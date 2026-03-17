@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Exam/《JUC并发编程》/Learning/Level_1_Assessment.md",
+                "file": "JUC/JUC基础与线程核心概念.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Level_1_Assessment"
+              "title": "JUC基础与线程核心概念"
             }
           }
         ]
@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 259.5,
-    "collapsed": true
+    "width": 259.5
   },
   "right": {
     "id": "8e7d3cf0411bcd58",
@@ -186,8 +185,15 @@
   },
   "active": "e41d4b98b77dcbb1",
   "lastOpenFiles": [
-    "Exam/《JUC并发编程》/Learning/Learning_Prompt.md",
+    "MySQL/MySQL原理/MySQL执行计划.md",
+    "JUC/JUC基础与线程核心概念.md",
+    "JUC/未命名",
+    "JUC",
+    "MySQL/MySQL原理/MySQL基于规则的优化.md",
+    "MySQL/MySQL原理/MySQL锁与事务.md",
+    "MySQL/MySQL原理/MySQL索引原理.md",
     "Exam/《JUC并发编程》/Learning/Level_1_Assessment.md",
+    "Exam/《JUC并发编程》/Learning/Learning_Prompt.md",
     "Exam/《JUC并发编程》/Learning",
     "Exam/《JUC并发编程》/未命名.md",
     "Personal/玩家信息.canvas",
@@ -210,22 +216,15 @@
     "Exam/《MySQL进阶》/Level_3/Level_3_MyAnswer.md",
     "Exam/《MySQL进阶》/Level_4",
     "MySQL/MySQL笔记/进阶/MySQL锁机制与并发控制.md",
-    "MySQL/MySQL原理/MySQL锁与事务.md",
-    "MySQL/MySQL原理/MySQL执行计划.md",
-    "MySQL/MySQL原理/MySQL索引原理.md",
     "Exam/《MySQL进阶》/Level_3",
     "Exam/《MySQL进阶》/新建文件夹",
     "Exam/《MySQL进阶》/Level_2/Level_2_MyAnswer.md",
     "Project/苍穹外卖/Design/数据库设计文档.md",
-    "MySQL/MySQL原理/MySQL基于规则的优化.md",
     "MySQL/MySQL原理/statement/InnoDB统计数据收集机制.md",
-    "MySQL/MySQL原理/statement/MySQL成本常数.md",
     "MySQL/MySQL原理/statement",
     "MySQL/MySQL原理/img/MySQL联表笛卡尔积.jpg",
     "MySQL/MySQL原理/img/MySQL索引表的属性.jpg",
     "未命名.base",
-    "Exam/《MySQL进阶》/Level_2",
-    "Orther/Prompt",
     "MySQL/MySQL原理/img/MySQL执行原理3.png",
     "MySQL/MySQL原理/img/MySQL执行原理2.png",
     "MySQL/MySQL原理/img/MySQL执行原理1.png",
