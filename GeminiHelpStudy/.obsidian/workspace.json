@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "JUC/JUC基础与线程核心概念.md",
+                "file": "JUC/共享模型之无锁_JMM.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "JUC基础与线程核心概念"
+              "title": "共享模型之无锁_JMM"
             }
           }
         ]
@@ -185,9 +185,12 @@
   },
   "active": "e41d4b98b77dcbb1",
   "lastOpenFiles": [
-    "MySQL/MySQL原理/MySQL执行计划.md",
+    "JUC/共享模型之管程.md",
+    "JUC/共享模型之无锁_JMM.md",
     "JUC/JUC基础与线程核心概念.md",
-    "JUC/未命名",
+    "JUC/statement/JVM与CPU之间栈帧区别.md",
+    "JUC/statement",
+    "MySQL/MySQL原理/MySQL执行计划.md",
     "JUC",
     "MySQL/MySQL原理/MySQL基于规则的优化.md",
     "MySQL/MySQL原理/MySQL锁与事务.md",
@@ -218,9 +221,6 @@
     "MySQL/MySQL笔记/进阶/MySQL锁机制与并发控制.md",
     "Exam/《MySQL进阶》/Level_3",
     "Exam/《MySQL进阶》/新建文件夹",
-    "Exam/《MySQL进阶》/Level_2/Level_2_MyAnswer.md",
-    "Project/苍穹外卖/Design/数据库设计文档.md",
-    "MySQL/MySQL原理/statement/InnoDB统计数据收集机制.md",
     "MySQL/MySQL原理/statement",
     "MySQL/MySQL原理/img/MySQL联表笛卡尔积.jpg",
     "MySQL/MySQL原理/img/MySQL索引表的属性.jpg",
