@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "JUC/共享模型之无锁_JMM.md",
+                "file": "JUC/JUC辅助工具与进阶.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "共享模型之无锁_JMM"
+              "title": "JUC辅助工具与进阶"
             }
           }
         ]
@@ -186,7 +186,10 @@
   "active": "e41d4b98b77dcbb1",
   "lastOpenFiles": [
     "JUC/共享模型之管程.md",
+    "JUC/不可变性.md",
     "JUC/共享模型之无锁_JMM.md",
+    "JUC/JUC辅助工具与进阶.md",
+    "JUC/原子类与CAS.md",
     "JUC/JUC基础与线程核心概念.md",
     "JUC/statement/JVM与CPU之间栈帧区别.md",
     "JUC/statement",
@@ -214,11 +217,8 @@
     "Exam/《MySQL进阶》/Level_2/Level_2_Grading.md",
     "MySQL/复盘笔记/数据库高阶复盘：Level 3 核心战役 (MVCC与锁并发).md",
     "MySQL/复盘笔记/Level 2 四表联查与深分页实战.md",
-    "Exam/《MySQL进阶》/Level_3/Level_3_Grading.md",
     "MySQL/复盘笔记",
-    "Exam/《MySQL进阶》/Level_3/Level_3_MyAnswer.md",
     "Exam/《MySQL进阶》/Level_4",
-    "MySQL/MySQL笔记/进阶/MySQL锁机制与并发控制.md",
     "Exam/《MySQL进阶》/Level_3",
     "Exam/《MySQL进阶》/新建文件夹",
     "MySQL/MySQL原理/statement",
