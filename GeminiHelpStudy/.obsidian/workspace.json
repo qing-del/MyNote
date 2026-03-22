@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "JUC/共享模型之管程.md",
+                "file": "JUC/共享模型之无锁_JMM.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "共享模型之管程"
+              "title": "共享模型之无锁_JMM"
             }
           },
           {
@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Exam/《JUC并发编程》/Learning/Level_1_Assessment.md",
+                "file": "Exam/《JUC并发编程》/Learning/Level_2_Assessment.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Level_1_Assessment"
+              "title": "Level_2_Assessment"
             }
           }
         ]
@@ -92,8 +92,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 259.5,
-    "collapsed": true
+    "width": 259.5
   },
   "right": {
     "id": "8e7d3cf0411bcd58",
@@ -200,15 +199,32 @@
   },
   "active": "e41d4b98b77dcbb1",
   "lastOpenFiles": [
-    "Exam/《JUC并发编程》/Learning/Level_1_Assessment.md",
-    "JUC/共享模型之管程.md",
+    "EnglishLearn/100DayListenPractice/context/Day 2.md",
+    "EnglishLearn/100DayListenPractice/note",
+    "EnglishLearn/100DayListenPractice/未命名.md",
+    "EnglishLearn/100DayListenPractice/context",
+    "JUC/共享模型之无锁_JMM.md",
     "JUC/JUC辅助工具与进阶.md",
+    "Exam/《JUC并发编程》/Learning/Level_2_Assessment.md",
+    "Exam/《JUC并发编程》/Learning/Level_1_Grading.md",
+    "Exam/《JUC并发编程》/Learning/Level_1_Assessment.md",
+    "Exam/《JUC并发编程》/Learning/Level_1_MyAnswer.md",
+    "JUC/共享模型之管程.md",
+    "JUC/不可变性.md",
+    "JUC/JUC基础与线程核心概念.md",
+    "Exam/《JUC并发编程》/Learning/Learning_Prompt.md",
+    "JUC/code/MailCompany.md",
+    "JUC/code",
+    "Linux&Docker/Docker/note/Docker 学习笔记汇总.md",
+    "Linux&Docker/Docker/note/Docker 容器化技术详解.md",
+    "Linux&Docker/Docker/Docker 快速入门.md",
+    "Linux&Docker/Docker/Docker 命令图.canvas",
+    "JUC/img/重量级锁过程.jpg",
+    "JUC/img/轻量级锁上锁过程.jpg",
+    "JUC/img",
     "Exam/《MySQL进阶》/Level_4/Level_4_Grading.md",
     "Exam/《MySQL进阶》/Level_4/Level_4_MyAnswer_Part1.md",
     "Exam/《MySQL进阶》/Level_4/Level_4_Assessment.md",
-    "JUC/JUC基础与线程核心概念.md",
-    "JUC/共享模型之无锁_JMM.md",
-    "JUC/不可变性.md",
     "JUC/原子类与CAS.md",
     "JUC/statement/JVM与CPU之间栈帧区别.md",
     "JUC/statement",
@@ -217,43 +233,25 @@
     "MySQL/MySQL原理/MySQL基于规则的优化.md",
     "MySQL/MySQL原理/MySQL锁与事务.md",
     "MySQL/MySQL原理/MySQL索引原理.md",
-    "Exam/《JUC并发编程》/Learning/Learning_Prompt.md",
     "Exam/《JUC并发编程》/Learning",
-    "Exam/《JUC并发编程》/未命名.md",
     "Personal/玩家信息.canvas",
     "Exam/《JUC并发编程》",
-    "Exam/《MySQL进阶》/考试提示词构建/最终提示词.md",
-    "Exam/《MySQL进阶》/Level_4/Level_4_MyAnswer_Part2.md",
-    "Exam/《MySQL进阶》/Level_4/Level_4_MyAnswer.md",
-    "MySQL/MySQL原理/Details/MySQL存储结构.md",
     "MySQL/MySQL原理/Details/MySQL大体框架.canvas",
-    "Exam/《MySQL进阶》/Level_2/Level_2_Assessment.md",
-    "Exam/《MySQL进阶》/Level_3/Level_3_Assessment.md",
-    "Exam/《MySQL进阶》/Level_2/Level_2_Grading.md",
-    "MySQL/复盘笔记/数据库高阶复盘：Level 3 核心战役 (MVCC与锁并发).md",
-    "MySQL/复盘笔记/Level 2 四表联查与深分页实战.md",
     "MySQL/复盘笔记",
     "Exam/《MySQL进阶》/Level_4",
-    "Exam/《MySQL进阶》/Level_3",
-    "Exam/《MySQL进阶》/新建文件夹",
-    "MySQL/MySQL原理/statement",
     "MySQL/MySQL原理/img/MySQL联表笛卡尔积.jpg",
     "MySQL/MySQL原理/img/MySQL索引表的属性.jpg",
-    "未命名.base",
     "MySQL/MySQL原理/img/MySQL执行原理3.png",
     "MySQL/MySQL原理/img/MySQL执行原理2.png",
     "MySQL/MySQL原理/img/MySQL执行原理1.png",
     "MySQL/MySQL原理/img/MySQL页结构1.png",
     "MySQL/MySQL原理/img/MySQL索引原理2.png",
     "MySQL/MySQL原理/img/MySQL索引原理3.png",
-    "MySQL/MySQL原理/img/MySQL行结构1.png",
-    "MySQL/MySQL原理/img/MySQL-Undo_Log学习3.png",
     "MySQL/MySQL-表-知识点导图.canvas",
     "Orther/LoveLogic.canvas",
     "Project/task-system-note/two/Second_Stage_Architecture.canvas",
     "Project/task-system-note/two/Second_Stage_Architecture_CANVAS.canvas",
     "Project/task-system-note/one/First_Stage_Canvas.canvas",
-    "Linux&Docker/Docker/Docker 命令图.canvas",
     "Spring/CANVAS/自定义 starter 流程图.canvas",
     "Spring/CANVAS/Spring自动配置.canvas"
   ]

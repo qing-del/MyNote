@@ -114,6 +114,8 @@ run = false;  // 主线程写入后立即刷新到主内存
 > ```
 > 要保证原子性，需要使用 `synchronized` 或 `Atomic` 原子类
 
+> [!warning] `volatile`单独使用的话只能用在**==单个写线程+多个读线程==**
+
 ---
 
 ### 可见性 vs 原子性
@@ -383,6 +385,41 @@ public class Singleton {
 }
 ```
 
+```txt
+0: getstatic       // Field INSTANCE
+3: ifnonnull       // Judge INSTANCE is whehter ia a null
+6: ldt             // class Singleton
+8: dup             // duplicate the class order to lock
+9: astore_0        // store to stack into slot_0
+10: monitorenter   // try to get lock
+11: getstatic      // Field INSTANCE
+14: ifnonnull
+17: new            // class
+20: dup            // purpose to init the object
+21: invokespecial  // Method "<init>"
+24: putstatic      // Field INSTANCE (INSTANCE = address to the new)
+27: aload_0        // purpose to unlock
+28: monitorexit
+29: goto
+32: astore_1       // store exception to stack into slot_1
+33: aload_0
+34: monitorexit    // unlock when occour exception 
+35: aload_1
+36: athrow
+37: getstatic      // Field INSTANCE
+40: areturn
+```
+> [!info] 核心
+> 其实就是在 17~24 行这里会发生指令重排序
+> 同时有可能是 24 执行了，但是 21 还没有执行
+> 就会导致拿到没有初始化的对象，导致`NullPointerException`
+
+> [!warning] 为什么`synchronized`没有起到有序性
+> 因为`INSTANCE`没有完全被包裹起来
+> 实际上只保护了 17~24 行（但是*不能防止内部不重排序*）
+> 如果 `t1` 线程先进入了*同步代码块*
+> `t2`线程执行的时候，依旧是可以碰到这个`INSTANCE`的
+
 > [!failure] 问题分析 —— `new Singleton()` 的字节码分解
 > `INSTANCE = new Singleton()` 实际分为三步：
 > 1. `allocate` — 在堆上分配内存空间
@@ -414,6 +451,35 @@ public class Singleton {
         return INSTANCE;
     }
 }
+```
+
+```txt
+0: getstatic       // Field INSTANCE
+3: ifnonnull       // Judge INSTANCE is whehter ia a null
+6: ldt             // class Singleton
+8: dup             // duplicate the class order to lock
+9: astore_0        // store to stack into slot_0
+10: monitorenter   // try to get lock
+11: getstatic      // Field INSTANCE
+14: ifnonnull
+17: new            // class
+20: dup            // purpose to init the object
+21: invokespecial  // Method "<init>"
+ -------------- [StoreStore] -------------
+24: putstatic      // Field INSTANCE (INSTANCE = address to the new)
+ -------------- [StoreLoad] --------------
+27: aload_0        // purpose to unlock
+28: monitorexit
+29: goto
+32: astore_1       // store exception to stack into slot_1
+33: aload_0
+34: monitorexit    // unlock when occour exception 
+35: aload_1
+36: athrow
+37: getstatic      // Field INSTANCE
+ -------------- [LoadLoad] -------------
+ -------------- [LoadStore] -------------
+40: areturn
 ```
 
 > [!tip] 更简洁的单例方案
@@ -506,6 +572,10 @@ public class Singleton {
 ```
 - **线程安全**：类加载时初始化，JVM 保证 `<clinit>` 的线程安全性
 - **缺点**：不管用不用都会创建实例
+
+> [!info] 补充
+> 如果这个对象实现了`Serializable`序列化，就不能防止反序列号
+> 如果要解决，可以加入`public Object readResolve()`，重写接口方法来解决
 
 #### 方案2：DCL + volatile（已分析）
 - 见 [[#DCL 单例与 volatile]]
