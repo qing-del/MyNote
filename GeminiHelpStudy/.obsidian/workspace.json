@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "JUC/共享模型之无锁_JMM.md",
+                "file": "JUC/原子类与CAS.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "共享模型之无锁_JMM"
+              "title": "原子类与CAS"
             }
           },
           {
@@ -27,15 +27,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Exam/《JUC并发编程》/Learning/Level_2_Assessment.md",
+                "file": "Exam/《JUC并发编程》/Learning/Level_1_Grading.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Level_2_Assessment"
+              "title": "Level_1_Grading"
+            }
+          },
+          {
+            "id": "14fc3508bc7a410d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "EnglishLearn/100DayListenPractice/context/Day 3.md",
+                "mode": "preview",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "Day 3"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -197,21 +212,28 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "e41d4b98b77dcbb1",
+  "active": "14fc3508bc7a410d",
   "lastOpenFiles": [
     "EnglishLearn/100DayListenPractice/context/Day 2.md",
+    "EnglishLearn/100DayListenPractice/context/Day 3.md",
+    "Exam/《JUC并发编程》/Learning/Level_2_Assessment.md",
+    "JUC/原子类与CAS.md",
+    "OtherUnits/Apache POI.md",
+    "JUC/JUC辅助工具与进阶.md",
+    "Exam/《JUC并发编程》/Learning/Level_1_Grading.md",
+    "JUC/共享模型之无锁_JMM.md",
+    "JUC/共享模型之管程.md",
+    "JUC/JUC基础与线程核心概念.md",
+    "EnglishLearn/100DayListenPractice/context/Day 1.md",
+    "JUC/不可变性.md",
+    "JUC/html/流程图.md",
+    "JUC/html/chart.html",
+    "JUC/html",
     "EnglishLearn/100DayListenPractice/note",
     "EnglishLearn/100DayListenPractice/未命名.md",
     "EnglishLearn/100DayListenPractice/context",
-    "JUC/共享模型之无锁_JMM.md",
-    "JUC/JUC辅助工具与进阶.md",
-    "Exam/《JUC并发编程》/Learning/Level_2_Assessment.md",
-    "Exam/《JUC并发编程》/Learning/Level_1_Grading.md",
     "Exam/《JUC并发编程》/Learning/Level_1_Assessment.md",
     "Exam/《JUC并发编程》/Learning/Level_1_MyAnswer.md",
-    "JUC/共享模型之管程.md",
-    "JUC/不可变性.md",
-    "JUC/JUC基础与线程核心概念.md",
     "Exam/《JUC并发编程》/Learning/Learning_Prompt.md",
     "JUC/code/MailCompany.md",
     "JUC/code",
@@ -225,20 +247,14 @@
     "Exam/《MySQL进阶》/Level_4/Level_4_Grading.md",
     "Exam/《MySQL进阶》/Level_4/Level_4_MyAnswer_Part1.md",
     "Exam/《MySQL进阶》/Level_4/Level_4_Assessment.md",
-    "JUC/原子类与CAS.md",
     "JUC/statement/JVM与CPU之间栈帧区别.md",
     "JUC/statement",
     "MySQL/MySQL原理/MySQL执行计划.md",
     "JUC",
-    "MySQL/MySQL原理/MySQL基于规则的优化.md",
-    "MySQL/MySQL原理/MySQL锁与事务.md",
-    "MySQL/MySQL原理/MySQL索引原理.md",
     "Exam/《JUC并发编程》/Learning",
     "Personal/玩家信息.canvas",
     "Exam/《JUC并发编程》",
     "MySQL/MySQL原理/Details/MySQL大体框架.canvas",
-    "MySQL/复盘笔记",
-    "Exam/《MySQL进阶》/Level_4",
     "MySQL/MySQL原理/img/MySQL联表笛卡尔积.jpg",
     "MySQL/MySQL原理/img/MySQL索引表的属性.jpg",
     "MySQL/MySQL原理/img/MySQL执行原理3.png",

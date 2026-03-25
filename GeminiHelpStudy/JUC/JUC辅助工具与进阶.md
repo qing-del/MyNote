@@ -290,6 +290,11 @@ scheduler.scheduleWithFixedDelay(() -> { ... }, 0, 2, TimeUnit.SECONDS);
 > `java.util.Timer` 是单线程的：一个任务抛出异常 → 整个 Timer 终止
 > `ScheduledThreadPoolExecutor` 多线程执行，一个任务异常不影响其他任务
 
+> [!info] `ScheduledThreadPoolExecutor`异常处理问题
+> 使用这个线程池去执行任务的时候，如果任务出现了异常，它是不会打印异常到控制台的
+> 1. 自己写`try/catch`代码块来自己处理
+> 2. 可以使用`Future<T>`类来获取，调用`f.get()`方法，如果正常就会打印返回值，否则就会打印异常
+
 ---
 
 ## Tomcat 线程池

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LongAccumulate 源码执行流程图</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#f0f9ff',
+                primaryTextColor: '#1e293b',
+                primaryBorderColor: '#0ea5e9',
+                lineColor: '#64748b',
+                secondaryColor: '#fef2f2',
+                tertiaryColor: '#f0fdf4'
+            },
+            flowchart: {
+                useMaxWidth: false,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f8fafc;
+        }
+        .mermaid {
+            display: flex;
+            justify-content: center;
+            overflow-x: auto;
+            padding: 2rem;
+        }
+        /* 自定义 Mermaid 节点样式 */
+        .node rect, .node circle, .node polygon {
+            stroke-width: 2px;
+        }
+        .edgeLabel {
+            background-color: white !important;
+            padding: 2px 6px !important;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: #334155;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center py-10 px-4">
+
+    <div class="max-w-7xl w-full bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-100">
+        <div class="bg-slate-800 p-6 text-center">
+            <h1 class="text-3xl font-bold text-white tracking-wide">Striped64.longAccumulate 核心流程图</h1>
+            <p class="text-slate-400 mt-2 text-sm">LongAdder 高并发累加的底层核心机制解析</p>
+        </div>
+
+        <div class="p-8">
+            <div class="flex gap-4 justify-center mb-6 text-sm">
+                <div class="flex items-center gap-2"><span class="w-4 h-4 rounded bg-[#e0f2fe] border-2 border-[#0ea5e9]"></span> 核心动作</div>
+                <div class="flex items-center gap-2"><span class="w-4 h-4 rounded bg-[#fff7ed] border-2 border-[#f97316]"></span> 判断条件</div>
+                <div class="flex items-center gap-2"><span class="w-4 h-4 rounded-full bg-[#f0fdf4] border-2 border-[#22c55e]"></span> 起点/终点</div>
+                <div class="flex items-center gap-2"><span class="w-4 h-4 rounded bg-[#f1f5f9] border-2 border-[#94a3b8]"></span> 辅助动作</div>
+            </div>
+
+            <!-- Mermaid 流程图容器 -->
+            <div class="mermaid bg-slate-50 rounded-xl border border-slate-200">
+                %%{init: {'theme': 'base', 'themeVariables': { 'fontFamily': 'arial', 'fontSize': '14px'}}}%%
+                graph TD
+                    classDef action fill:#e0f2fe,stroke:#0ea5e9,stroke-width:2px,color:#0f172a,rx:8px,ry:8px;
+                    classDef condition fill:#fff7ed,stroke:#f97316,stroke-width:2px,color:#9a3412,rx:4px,ry:4px;
+                    classDef terminal fill:#f0fdf4,stroke:#22c55e,stroke-width:2px,color:#14532d;
+                    classDef assist fill:#f1f5f9,stroke:#94a3b8,stroke-width:2px,color:#334155,stroke-dasharray: 5 5;
+
+                    Start(["开始自旋<br/>for(;;)"]):::terminal --> B{"cells 是否已初始化<br/>且 length > 0 ?"}:::condition
+
+                    %% 分支 1：cells 已初始化
+                    B -->|是| B1{"当前线程对应的<br/>Cell 是否为 null ?"}:::condition
+
+                    %% 分支 1.1：对应的 Cell 为空，尝试新建
+                    B1 -->|是| C{"cellsBusy == 0 ?<br/>(未加锁)"}:::condition
+                    C -->|是| TryLock1["尝试 CAS 获取锁<br/>casCellsBusy"]:::action
+                    TryLock1 -->|成功| DoubleCheck{"再次检查当前<br/>位置是否为 null ?<br/>(DCL双重检查)"}:::condition
+                    DoubleCheck -->|是| CreateCell["创建新 Cell(值为 x)<br/>并放入 cells 数组"]:::action
+                    CreateCell --> End(["退出循环"]):::terminal
+                    DoubleCheck -->|否| ReleaseLock1["释放锁"]:::assist
+                    ReleaseLock1 --> NextLoop
+                    TryLock1 -->|失败| NextLoop
+                    C -->|否| NextLoop
+
+                    %% 分支 1.2：Cell 不为空，但外部 CAS 已经失败过
+                    B1 -->|否| C1{"wasUncontended<br/>== false ?"}:::condition
+                    C1 -->|是| SetUncontended["设为 true<br/>当作没发生冲突"]:::action
+                    SetUncontended --> NextLoop
+
+                    %% 分支 1.3：尝试在现有的 Cell 上直接计算
+                    C1 -->|否| C2["使用当前 Cell<br/>尝试 CAS 累加计算"]:::action
+                    C2 -->|成功| End
+
+                    %% 分支 1.4：计算失败，准备扩容或重试
+                    C2 -->|失败| D1{"cells 长度 >= CPU核心数<br/>或 cells 已被修改 ?"}:::condition
+                    D1 -->|是| SetCollideFalse["发生冲突<br/>collide = false"]:::action
+                    SetCollideFalse --> NextLoop
+                    D1 -->|否| CheckCollide{"collide == false ?"}:::condition
+
+                    CheckCollide -->|是| SetCollideTrue["修改冲突标识<br/>collide = true"]:::action
+                    SetCollideTrue --> NextLoop
+
+                    CheckCollide -->|否| C3{"cellsBusy == 0 ?<br/>(尝试加锁扩容)"}:::condition
+                    C3 -->|是| TryLock2["尝试 CAS 获取锁<br/>casCellsBusy"]:::action
+                    TryLock2 -->|成功| ExpandCells["对 cells 进行两倍扩容<br/>迁移数据<br/>collide = false"]:::action
+                    ExpandCells --> ReleaseLock2["释放锁"]:::assist
+                    ReleaseLock2 --> NextLoop
+                    TryLock2 -->|失败| NextLoop
+                    C3 -->|否| NextLoop
+
+                    %% 分支 2：cells 未初始化，尝试加锁初始化
+                    B -->|否| B2{"cellsBusy == 0<br/>且 cells 未被改动 ?"}:::condition
+                    B2 -->|是| TryLockInit["尝试 CAS 获取锁"]:::action
+                    TryLockInit -->|成功| InitCells["初始化 cells 数组<br/>初始长度为 2<br/>创建 Cell(值为 x)"]:::action
+                    InitCells --> End
+                    TryLockInit -->|失败| D3
+
+                    %% 分支 3：兜底，竞争加锁失败时尝试 base
+                    B2 -->|否| D3["兜底：尝试使用 base<br/>进行 CAS 累加计算"]:::action
+                    D3 -->|成功| End
+                    D3 -->|失败| NextLoop
+
+                    %% 下一轮循环重置逻辑
+                    NextLoop["重新计算线程 Hash 探测值<br/>rehash"]:::assist
+                    NextLoop -.->|进入下一轮循环| Start
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
