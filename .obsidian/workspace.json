@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SchoolHomework/大劳视频.md",
+                "file": "JavaWeb/AfterEnd/令牌.md",
                 "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "大劳视频"
+              "title": "令牌"
             }
           }
         ],
@@ -197,6 +197,8 @@
   },
   "active": "e59e4b1d6515d0b7",
   "lastOpenFiles": [
+    "JavaWeb/AfterEnd/日志.md",
+    "SchoolHomework/大劳视频.md",
     "JavaWeb/Statistics/Echarts.md",
     "JavaWeb/TableOfContents.md",
     "JavaWeb/MyBatis/动态SQL语句.md",
@@ -208,7 +210,6 @@
     "JavaWeb/AfterEnd/过滤与拦截.md",
     "JavaWeb/AfterEnd/接口开发示例.md",
     "JavaWeb/AfterEnd/令牌.md",
-    "JavaWeb/AfterEnd/日志.md",
     "JavaWeb/AfterEnd/文件上传.md",
     "JavaWeb/AfterEnd/异常处理.md",
     "JavaWeb/AfterEnd/Lombok常见问题.md",
@@ -224,7 +225,6 @@
     "GeminiHelpStudy/task-system-note/two/全栈交互与多用户架构.md.md",
     "GeminiHelpStudy/task-system-note/two/Second Stage.md",
     "GeminiHelpStudy/task-system-note/two/前端核心逻辑架构.md.md",
-    "GeminiHelpStudy/task-system-note/two/Password Hash Encode.md",
     "GeminiHelpStudy/task-system-note/one/First_Stage_Canvas.canvas",
     "GeminiHelpStudy/task-system-note/two",
     "GeminiHelpStudy/task-system-note/one/未命名.canvas",

@@ -8,49 +8,34 @@
         "type": "tabs",
         "children": [
           {
-            "id": "e41d4b98b77dcbb1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "JUC/原子类与CAS.md",
-                "mode": "preview",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "原子类与CAS"
-            }
-          },
-          {
             "id": "ff3a3eaac9e523a6",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Exam/《JUC并发编程》/Learning/Level_1_Grading.md",
+                "file": "Exam/《JUC并发编程》/Learning/Level_2_Assessment.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Level_1_Grading"
+              "title": "Level_2_Assessment"
             }
           },
           {
-            "id": "14fc3508bc7a410d",
+            "id": "e9a0cc73b9f6ac03",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "EnglishLearn/100DayListenPractice/context/Day 3.md",
+                "file": "Exam/《JUC并发编程》/Learning/Level_3_Assessment.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Day 3"
+              "title": "Level_3_Assessment"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -107,7 +92,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 259.5
+    "width": 259.5,
+    "collapsed": true
   },
   "right": {
     "id": "8e7d3cf0411bcd58",
@@ -212,20 +198,27 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "14fc3508bc7a410d",
+  "active": "ff3a3eaac9e523a6",
   "lastOpenFiles": [
-    "EnglishLearn/100DayListenPractice/context/Day 2.md",
-    "EnglishLearn/100DayListenPractice/context/Day 3.md",
-    "Exam/《JUC并发编程》/Learning/Level_2_Assessment.md",
-    "JUC/原子类与CAS.md",
-    "OtherUnits/Apache POI.md",
+    "Exam/《JUC并发编程》/Learning/Level_2_Grading.md",
+    "Exam/《JUC并发编程》/Learning/Level_3_Assessment.md",
+    "Exam/《JUC并发编程》/Learning/Learning_Prompt.md",
+    "Spring/令牌机制与JWT深入探讨.md",
+    "Exam/《JUC并发编程》/Learning/Level_2_MyAnswer.md",
     "JUC/JUC辅助工具与进阶.md",
+    "Exam/《JUC并发编程》/Learning/Level_2_Assessment.md",
     "Exam/《JUC并发编程》/Learning/Level_1_Grading.md",
-    "JUC/共享模型之无锁_JMM.md",
-    "JUC/共享模型之管程.md",
-    "JUC/JUC基础与线程核心概念.md",
-    "EnglishLearn/100DayListenPractice/context/Day 1.md",
+    "Spring/img/JWT_TokenExample.jpg",
     "JUC/不可变性.md",
+    "JUC/共享模型之管程.md",
+    "JUC/原子类与CAS.md",
+    "JUC/JUC基础与线程核心概念.md",
+    "JUC/共享模型之无锁_JMM.md",
+    "Maven/Maven高级.md",
+    "EnglishLearn/100DayListenPractice/context/Day 3.md",
+    "EnglishLearn/100DayListenPractice/context/Day 2.md",
+    "OtherUnits/Apache POI.md",
+    "EnglishLearn/100DayListenPractice/context/Day 1.md",
     "JUC/html/流程图.md",
     "JUC/html/chart.html",
     "JUC/html",
@@ -234,7 +227,6 @@
     "EnglishLearn/100DayListenPractice/context",
     "Exam/《JUC并发编程》/Learning/Level_1_Assessment.md",
     "Exam/《JUC并发编程》/Learning/Level_1_MyAnswer.md",
-    "Exam/《JUC并发编程》/Learning/Learning_Prompt.md",
     "JUC/code/MailCompany.md",
     "JUC/code",
     "Linux&Docker/Docker/note/Docker 学习笔记汇总.md",
@@ -244,12 +236,7 @@
     "JUC/img/重量级锁过程.jpg",
     "JUC/img/轻量级锁上锁过程.jpg",
     "JUC/img",
-    "Exam/《MySQL进阶》/Level_4/Level_4_Grading.md",
-    "Exam/《MySQL进阶》/Level_4/Level_4_MyAnswer_Part1.md",
-    "Exam/《MySQL进阶》/Level_4/Level_4_Assessment.md",
-    "JUC/statement/JVM与CPU之间栈帧区别.md",
     "JUC/statement",
-    "MySQL/MySQL原理/MySQL执行计划.md",
     "JUC",
     "Exam/《JUC并发编程》/Learning",
     "Personal/玩家信息.canvas",
@@ -262,7 +249,6 @@
     "MySQL/MySQL原理/img/MySQL执行原理1.png",
     "MySQL/MySQL原理/img/MySQL页结构1.png",
     "MySQL/MySQL原理/img/MySQL索引原理2.png",
-    "MySQL/MySQL原理/img/MySQL索引原理3.png",
     "MySQL/MySQL-表-知识点导图.canvas",
     "Orther/LoveLogic.canvas",
     "Project/task-system-note/two/Second_Stage_Architecture.canvas",
