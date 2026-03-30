@@ -13,26 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Exam/《JUC并发编程》/Learning/Level_2_Assessment.md",
-                "mode": "preview",
+                "file": "JUC/原子类与CAS.md",
+                "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Level_2_Assessment"
+              "title": "原子类与CAS"
             }
           },
           {
-            "id": "e9a0cc73b9f6ac03",
+            "id": "f50e33dc7a379774",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Books/CLRS/Chapter-22/22.6 经典图论题目与架构实战.md",
+                "file": "Exam/《JUC并发编程》/Learning/Level_4_Assessment.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "22.6 经典图论题目与架构实战"
+              "title": "Level_4_Assessment"
             }
           }
         ],
@@ -198,8 +198,21 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "e9a0cc73b9f6ac03",
+  "active": "f50e33dc7a379774",
   "lastOpenFiles": [
+    "Exam/《JUC并发编程》/Learning/Level_3_Grading.md",
+    "Exam/《JUC并发编程》/Learning/Level_4_Assessment.md",
+    "Exam/《JUC并发编程》/Learning/Level_3_Assessment.md",
+    "Exam/《JUC并发编程》/Learning/Level_3_MyAnswer.md",
+    "JUC/原子类与CAS.md",
+    "JUC/共享模型之无锁_JMM.md",
+    "Exam/《JUC并发编程》/Learning/Level_1_MyAnswer.md",
+    "Exam/《JUC并发编程》/Learning/Level_2_Assessment.md",
+    "Exam/《JUC并发编程》/Learning/Level_2_MyAnswer.md",
+    "Exam/《JUC并发编程》/Learning/Level_1_Assessment.md",
+    "Exam/《JUC并发编程》/Learning/Level_2_Grading.md",
+    "JUC/JUC辅助工具与进阶.md",
+    "Books/CLRS/Chapter-22/22.6 经典图论题目与架构实战.md",
     "Books/CLRS/Chapter-22/22.1 图的表示法.md",
     "Books/CLRS/Chapter-32/32.1 朴素字符串匹配算法.md",
     "Books/CLRS/Chapter-32/32.3 有限自动机字符串匹配.md",
@@ -213,19 +226,6 @@
     "EnglishLearn/100DayListenPractice/context/Day 5.md",
     "Books/MOS/Chapter-04/4.5 文件系统实例.md",
     "Books/MOS/Chapter-04/4.4 文件系统的管理与优化.md",
-    "Books/MOS/Chapter-04/4.3 文件系统的实现.md",
-    "Books/MOS/Chapter-04/4.2 目录.md",
-    "Books/MOS/Chapter-04/4.1 文件.md",
-    "Books/MOS/Chapter-03/3.7 分段.md",
-    "Books/MOS/Chapter-03/3.6 分页系统的实现问题.md",
-    "Books/MOS/Chapter-03/3.5 分页系统的设计问题.md",
-    "Books/MOS/Chapter-03/3.3 虚拟内存.md",
-    "Books/MOS/Chapter-03/3.4 页面置换算法.md",
-    "Books/MOS/Chapter-03/3.2 地址空间与交换技术.md",
-    "Books/MOS/Chapter-03/3.1 无存储器抽象.md",
-    "Books/MOS/Chapter-02/2.5 经典IPC问题.md",
-    "Books/MOS/Chapter-02/2.4 调度.md",
-    "Books/MOS/Chapter-02/2.2 线程.md",
     "Books/MOS/Chapter-04",
     "Books/MOS/Chapter-03",
     "Books/MOS/Chapter-02",

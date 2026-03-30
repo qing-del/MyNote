@@ -97,7 +97,7 @@ public class OrderProcessor {
 
 - 更高级的改法：精确唤醒
     - 其实就是使用`ReentrantLock`中的`Condition`来作为锁
-    - 利用`Condition.await()`和`Condition.single()`来解锁
+    - 利用`Condition.await()`和`Condition.signal()`来解锁
     - 不过要做个`HashTable<User, Condition>`来做精确唤醒
 
 3. 答：我没打开MySQL的源码来查看，我随便说一个吧（我猜的）
