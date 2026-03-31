@@ -13,30 +13,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "JUC/原子类与CAS.md",
-                "mode": "source",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "原子类与CAS"
-            }
-          },
-          {
-            "id": "f50e33dc7a379774",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Exam/《JUC并发编程》/Learning/Level_4_Assessment.md",
+                "file": "Redis/Notes/01_课程导学与Redis入门.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Level_4_Assessment"
+              "title": "01_课程导学与Redis入门"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -93,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 259.5
+    "width": 259.5,
+    "collapsed": true
   },
   "right": {
     "id": "8e7d3cf0411bcd58",
@@ -198,34 +184,36 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "f50e33dc7a379774",
+  "active": "ff3a3eaac9e523a6",
   "lastOpenFiles": [
-    "Exam/《JUC并发编程》/Learning/Level_3_Grading.md",
-    "Exam/《JUC并发编程》/Learning/Level_4_Assessment.md",
-    "Exam/《JUC并发编程》/Learning/Level_3_Assessment.md",
-    "Exam/《JUC并发编程》/Learning/Level_3_MyAnswer.md",
-    "JUC/原子类与CAS.md",
-    "JUC/共享模型之无锁_JMM.md",
-    "Exam/《JUC并发编程》/Learning/Level_1_MyAnswer.md",
-    "Exam/《JUC并发编程》/Learning/Level_2_Assessment.md",
-    "Exam/《JUC并发编程》/Learning/Level_2_MyAnswer.md",
-    "Exam/《JUC并发编程》/Learning/Level_1_Assessment.md",
-    "Exam/《JUC并发编程》/Learning/Level_2_Grading.md",
+    "Redis/Notes/02_安装与数据结构与Java客户端.md",
+    "Redis/Java 中的 Redis.md",
     "JUC/JUC辅助工具与进阶.md",
-    "Books/CLRS/Chapter-22/22.6 经典图论题目与架构实战.md",
-    "Books/CLRS/Chapter-22/22.1 图的表示法.md",
-    "Books/CLRS/Chapter-32/32.1 朴素字符串匹配算法.md",
-    "Books/CLRS/Chapter-32/32.3 有限自动机字符串匹配.md",
-    "Books/CLRS/Chapter-32/32.4 深入浅出 KMP 算法.md",
-    "Books/CLRS/Chapter-32/32.5 经典高频字符串匹配实战题库.md",
-    "Books/CLRS/Chapter-11/11.6 经典题目实战.md",
-    "Books/CLRS/Chapter-11/11.4 开放寻址法.md",
-    "Books/CLRS/Chapter-11/11.3 散列函数设计.md",
-    "Books/CLRS/Chapter-11/11.2 散列表与冲突解决.md",
-    "Books/CLRS/Chapter-11/11.1 直接寻址表.md",
-    "EnglishLearn/100DayListenPractice/context/Day 5.md",
-    "Books/MOS/Chapter-04/4.5 文件系统实例.md",
-    "Books/MOS/Chapter-04/4.4 文件系统的管理与优化.md",
+    "Redis/Notes/04_秒杀与分布式锁与高级数据结构.md",
+    "Redis/Notes/03_短信登录与商户缓存.md",
+    "Redis/Notes/01_课程导学与Redis入门.md",
+    "Redis/Notes",
+    "未命名",
+    "Exam/《JUC并发编程》/Learning/Level_5_Grading.md",
+    "Exam/《JUC并发编程》/Learning/Level_5_MyAnswer.md",
+    "Exam/《JUC并发编程》/Learning/Learning_Prompt.md",
+    "Exam/《JUC并发编程》/Learning/Level_5_Assessment.md",
+    "Exam/《JUC并发编程》/Learning/Level_2_Assessment.md",
+    "Exam/《JUC并发编程》/Learning/Level_4_Grading.md",
+    "Exam/《JUC并发编程》/Learning/Level_4_Assessment.md",
+    "Exam/《JUC并发编程》/Learning/Level_4_MyAnswer.md",
+    "ErrorLog/限流器使用LongAdder.md",
+    "ErrorLog/POI问题.md",
+    "ErrorLog/广财抢课脚本.md",
+    "JUC/共享模型之无锁_JMM.md",
+    "JUC/原子类与CAS.md",
+    "Books/CSAPP/Chapter-03/3.3 数据格式.md",
+    "Books/CSAPP/Chapter-03/3.4 访问信息.md",
+    "Books/CSAPP/Chapter-03/3.2 程序编码.md",
+    "Books/CSAPP/Chapter-03/3.1 历史观点.md",
+    "Books/CSAPP/Chapter-09/9.1 物理和虚拟寻址.md",
+    "Books/CSAPP/Chapter-03/3.6 控制.md",
+    "Books/CSAPP/Chapter-03/3.7 过程.md",
     "Books/MOS/Chapter-04",
     "Books/MOS/Chapter-03",
     "Books/MOS/Chapter-02",
@@ -234,8 +222,6 @@
     "Books/CSAPP/Chapter-10",
     "Books/CSAPP/Chapter-09",
     "Books/CSAPP/Chapter-08",
-    "Books/CSAPP/Chapter-06",
-    "Books/CSAPP/Chapter-03",
     "Spring/img/JWT_TokenExample.jpg",
     "Linux&Docker/Docker/Docker 命令图.canvas",
     "JUC/img/重量级锁过程.jpg",
